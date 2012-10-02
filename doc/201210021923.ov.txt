@@ -1,0 +1,9 @@
+Rought architecture:
+201210021932.il.svg
+
+The plan for the first week is:
+- Build the Stage I toolchain
+- Investigate about the DEX format
+
+The plan for the second week is:
+- Investigate how LLVM backends are built

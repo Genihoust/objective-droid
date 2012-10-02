@@ -1,0 +1,111 @@
+Objective-Droid Brainstorm 0: 28 Sep 2012 [1500 GMT; 1650 GMT]
+
+Legend: ? = TODO
+	! = done
+        * = fact
+
+LLVM
+  ? Get the Obj-C frontend: http://clang.llvm.org/
+  * in C++
+  * Have to make a Backend
+
+Objective-C
+  ? Objective-C essentials
+  ? Acquire a code-base for testing
+  * Cocoa API -> GNUStep
+
+Dalvik
+  * register-based
+  ? a toolkit for writing bytecodes like the ASM
+  ? https://sites.google.com/site/io/dalvik-vm-internals
+  ? http://source.android.com/tech/dalvik/dalvik-bytecode.html
+  ? "The DEX format is undocumented": http://mylifewithandroid.blogspot.co.uk/2008/12/dalvik-opcodes.html
+  ? dex bc: http://pallergabor.uw.hu/common/understandingdalvikbytecode.pdf
+  * Possible to compile Objective-C to Java BC and then use dx
+  * dedexer: http://dedexer.sourceforge.net/
+  ? maybe irrelevant: https://bitbucket.org/erw/dalvik-bytecode-analysis-tool
+
+Mobile Compilation
+  ? Power vs. Performance
+
+Administration
+  * Meet twice a week
+  ? What and when to submit?
+  ? Steps?
+     1. Get clang - get it to work - 1.5 weeks
+     2. Learn basic/intermediate Objective-C; run on clang - 1.5 weeks
+     3. Learn about dex; generate ad-hoc programs - 3 weeks
+     4. Write a simple toolkit for outputting dex - 2 weeks
+     5. modify clang to output plain text - 2 weeks
+     6. gain intermediate LaTeX and project writing knowledge - 2 weeks
+     6. modify clang to start outputting dex 1 - 4 weeks
+     7. write a simple toolkit to use standard visualization on Android - 2 weeks
+     8. modify clang to output dex 2 - 4 weeks
+     9. write programs testing different aspects and measure performance - 2 weeks
+  * Events:
+     1. s1, week  4 ~ 10 Oct 2012 - first project group meeting: submit a one-page description of the project goals in advance
+     2. s1, week 11 ~  1 Dec 2012 - second project group meeting
+     3. s2, week  2 : 25 Jan 2013 - intermediate report
+     4. s2, week  6 ~ 20 Feb 2013 - third project group meeting
+     5. s2, week 12 :  3 Apr 2013 - deadline
+     6. s2, exam wk ~  1 May 2013 - project presentation
+
+Advice
+  * Good report is essential
+  * Starting structure: Intro, Backgrnd, Design, Impl, Eval, Concl
+  * Tenses:               -  ,  generic,   past, past, past,   -
+  * Should be DICE compatible - have a script that zips submittable files
+  * Discuss incompleted solutions
+  * Pier review
+  * Main areas of work required:
+     1. background info gathering
+     2. solving conceptual problems
+     3. design
+     4. implementation
+     5. experimentation and evaluation
+     6. writing up
+  * Bjoern helps with planning and tech advice
+  ? Is a git repo better for providing background info? http://www.inf.ed.ac.uk/teaching/courses/proj/#Report
+  * Report:
+     1. size > 20, in range of (30, 60) pages
+     2. Title page + abstract
+     3. Intro & stuff ~ 5 pages
+     4. Discussion of work, solutions, difficulties; overall principles & aspects of interest >> minute details; what is mine, what is borrowed, what is hard, what is easy
+     5. Conclusion - review of achievements, unresolved problems, directions for further work
+     6. Bibliography
+     7. Apendicies with relevant program listings, check plots, formal proofs
+  * Ask Bjoern to comment on a draft well before deadline
+
+Assessment
+  * Basic criteria
+     1. Understanding of the project
+     2. Completion
+     3. Quality of work
+     4. Quality of report
+  * Additional criteria
+     1. !! Knowledge of the literature !!
+     2. Critical eval of prev work
+     3. Critical eval of own work
+     4. Justification of design decisions
+     5. Solution of conceptual problems
+     6. Amount of work
+  * Exceptional criteria
+     1. Evidence of originality
+     2. Inclusion of publishable material
+  * Marking
+     1. II.1 - at least good on basic criteria, at least average (sometimes better) on additional criteria
+     2. A3 - good/excell on basic and additional criteria
+     3. A2 - good/excell on basic and additional criteria + elements of exceptional criteria
+     4. A1 - good/excell on basic, additional, and exceptional criteria + strong elements of exceptional criteria
+
+Milestones:
+  * by October  - start
+  * by November - good clang + Obj-C knowledge 
+  * by December - good dex knowledge
+  * by January  - toolkits for writing dex, reading clang IR
+  * by February - know how to write a report in LaTeX
+  * by March    - be able to compile a subset of obj-c; be able to display some results on a Phone
+  * by April    - be able to compile everything of obj-c; run experiments
+  * by May      - prepare presentation
+
+!! Continue with http://www.inf.ed.ac.uk/teaching/courses/proj/#Progress
