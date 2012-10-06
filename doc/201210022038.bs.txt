@@ -1,0 +1,21 @@
+Legend: ? = TODO
+	! = done
+        -, * = fact
+
+Building clang:
+  ! Visual Studio
+    ! Download VS10
+    ! Install VS10
+  ! SVN: http://www.sliksvn.com/en/download
+  ! CMake: http://www.cmake.org/cmake/resources/software.html
+
+Bytecode for the Dalvik VM
+  - common architecture, C-style calling conventions
+    - register-based
+    - frames are fixed in size upon creation
+      * number of registers
+      * program counter & ref to .dex file, etc.
+    - (Object) null == (int) 0
+  - Instructions aren't limited to a type
+  - Human-syntax
+    - dest-then-source ordering of arguments

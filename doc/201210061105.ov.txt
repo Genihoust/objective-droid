@@ -1,0 +1,8 @@
+Meeting with Stephen Kyle:
+ - dexdump to get the contents of a .dex
+ - LLJVM for a Java backend
+ - adb to connect to phone
+ - Obj-C Benchmarks to compare
+ - smali & baksmali
+ - apktool to package
+ ? LLVM -> smali code -> .dex
