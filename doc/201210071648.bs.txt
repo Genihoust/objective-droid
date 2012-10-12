@@ -1,0 +1,7 @@
+Progress for today:
+ - Checkout LLVM 2.6 with Clang 2.6
+   - Attempt to build both, but fail
+ - Read on LLJVM 0.2
+   - Needs Jasmin
+ - Checkout LLVM 2.7 with Clang 2.7
+   - Attempt to build both, but fail
