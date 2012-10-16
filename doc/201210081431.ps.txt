@@ -1,0 +1,27 @@
+﻿Progress as of 8 Oct 2012 1431:
+  - Summary of project: a compiler from Objective-C to Dalvik VM - Android’s VM;
+  - Motivating factors:
+    = Really cool if you could just compile iPhone Apps for Android
+    = Apple have a reason to be happy - popularizing Obj-C
+    = Google have a reason to be happy - easier to target Android
+    = Developers have a reason to be happy - easier to write multiplatform apps
+  - Issues:
+    = Porting libraries
+    = Translating iPhone idioms to Android idioms - ? -> Activities
+    = DEX does not have great documentation - luckily, PhD students help (Stephen Kyle)
+  - Progress:
+    = Outline solution
+      + Use latest LLVM/clang to produce “llvm code”
+      + write backend to compile “llvm code” to “smali code”
+      + use “smali” to assemble “smali code” to .dex
+      + use “apktool” to package .dex to .apk
+    = Set initial goal of building a benchmark solution from off-the-shelf components
+      + Use LLVM/clang to produce “llvm code”
+      + Use some LLVM Java backend (LLJVM) to produce “java bytecode”
+      + Assemble the “java bytecode”
+      + Use “dx” to convert the “java bytecode” to .dex
+      + Use “apktool” to package .dex to .apk
+    = Download and build LLVM/clang 3.2
+    = Download LLVM/clang 2.6 and LLVM/clang 2.7 (needed by LLJVM 0.2) and attempt a build in VS 10 - but failed
+      + I start to question whether I should put more effort in trying to compile LLJVM;
+      + Maybe I should try on a linux machine
