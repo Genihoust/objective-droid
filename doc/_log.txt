@@ -42,3 +42,6 @@ Work on http://llvm.org/devmtg/2012-04-12/Slides/Workshops/Anton_Korobeynikov.pd
 also in
 ../resources
 Produce 201210161503.bs.txt.
+
+19 oct 2012
+Meet with Bjoern - should start writing the backend.
