@@ -43,5 +43,9 @@ also in
 ../resources
 Produce 201210161503.bs.txt.
 
-19 oct 2012
+19 Oct 2012
 Meet with Bjoern - should start writing the backend.
+
+20 Oct 2012
+Start work on the backend. Use tutorial at llvm.org/docs/WritingAnLLVMBackend.html
+Produce file 201210202120.bs.txt.

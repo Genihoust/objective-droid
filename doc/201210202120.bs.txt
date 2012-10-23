@@ -1,0 +1,16 @@
+1. Create a DalvikTargetMachine;    DalvikTargetMachine.h/cpp
+2. Describe the register set;       TableGen and DalvikRegisterInfo.td -> DalvikRegisterInfo.h
+3. Describe the instruction set;    TableGen and DalvikInstrFormats.td and DalvikInstrInfo.td -> DalvikInstrInfo.h/cpp
+4. SDAG convertion;                 TableGen and DalvikInstrInfo.td and DalvikISelDAGToDAG.cpp and DalvikISelLowering.cpp
+5. Write assembly printer to GAS;   DalvikInstrInfo.td and DalvikAsmPrinter.cpp
+6. Add support for subtargets;      DalvikSubtarget.cpp
+7. Add JIT support;                 DalvikJITInfo.h/cpp
+
+Again
+
+I. Create a Makefile;               Library name LLVMDalvik
+II. DalvikTargetMachine;             a subclass of LLVMTargetMachine
+III. Add to TARGETS_TO_BUILD;         in the configure script, reconfigure afterwards
+
+1. DalvikTargetMachine:
+
