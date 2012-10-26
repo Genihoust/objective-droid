@@ -55,3 +55,4 @@ Continue work on the backend. Start defining registers.
 http://stackoverflow.com/questions/2719469/why-is-the-jvm-stack-based-and-the-dalvik-vm-register-based
 Update file 201210202120.bs.txt.
 Meet Bjoern.
+Work on it. Produce 201210262044.bs.registers.txt. Rename files to Dalvik.
