@@ -13,4 +13,24 @@ II. DalvikTargetMachine;             a subclass of LLVMTargetMachine
 III. Add to TARGETS_TO_BUILD;         in the configure script, reconfigure afterwards
 
 1. DalvikTargetMachine:
+ a) Should provide
+   - TODO: getInstrInfo()
+   - TODO: getRegisterInfo()
+   - TODO: getFrameInfo()
+   - TODO: getDataLayout()
+   - TODO: getSubtargetImpl()
+   * TODO: getTargetLowering()
+   * TODO: getJITInfo()
 
+   - TODO: constructor: specify TargetDescription string
+ b) Target registration
+   - 
+extern "C" void LLVMInitializeSparcTargetInfo() { 
+  RegisterTarget<Triple::sparc, /*HasJIT=*/false>
+    X(TheSparcTarget, "sparc", "Sparc");
+}
+
+2. DalvikRegisterInfo
+ a) RegisterInfo.td
+   - Define register classes
+   - Declare registers

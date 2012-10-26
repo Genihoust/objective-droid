@@ -49,3 +49,9 @@ Meet with Bjoern - should start writing the backend.
 20 Oct 2012
 Start work on the backend. Use tutorial at llvm.org/docs/WritingAnLLVMBackend.html
 Produce file 201210202120.bs.txt.
+
+26 Oct 2012
+Continue work on the backend. Start defining registers.
+http://stackoverflow.com/questions/2719469/why-is-the-jvm-stack-based-and-the-dalvik-vm-register-based
+Update file 201210202120.bs.txt.
+Meet Bjoern.

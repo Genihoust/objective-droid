@@ -16,14 +16,14 @@
 #include "llvm/CodeGen/Passes.h"
 #include "llvm/Support/TargetRegistry.h"
 using namespace llvm;
-// TODO: HERE
-extern "C" void LLVMInitializeSparcTarget() {
+
+extern "C" void LLVMInitializeDalvikTarget() {
   // Register the target.
-  RegisterTargetMachine<SparcV8TargetMachine> X(TheSparcTarget);
-  RegisterTargetMachine<SparcV9TargetMachine> Y(TheSparcV9Target);
+  RegisterTargetMachine<Triple::dalvik> X(TheDalvikTarget, "dalvik", "Dalvik");
 }
 
-/// SparcTargetMachine ctor - Create an ILP32 architecture model
+
+/// DalvikTargetMachine ctor - Create an ILP32 architecture model
 ///
 SparcTargetMachine::SparcTargetMachine(const Target &T, StringRef TT,
                                        StringRef CPU, StringRef FS,
@@ -40,7 +40,7 @@ SparcTargetMachine::SparcTargetMachine(const Target &T, StringRef TT,
 }
 
 namespace {
-/// Sparc Code Generator Pass Configuration Options.
+/// Sparc Code Generator Pass Configuraion Options.
 class SparcPassConfig : public TargetPassConfig {
 public:
   SparcPassConfig(SparcTargetMachine *TM, PassManagerBase &PM)
