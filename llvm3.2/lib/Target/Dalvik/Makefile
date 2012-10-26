@@ -1,4 +1,4 @@
-##===- lib/Target/Mips/Makefile ----------------------------*- Makefile -*-===##
+##===- lib/Target/Dalvik/Makefile ----------------------------*- Makefile -*-===##
 #
 #                     The LLVM Compiler Infrastructure
 #
@@ -8,16 +8,12 @@
 ##===----------------------------------------------------------------------===##
 
 LEVEL = ../../..
-LIBRARYNAME = LLVMMipsCodeGen
-TARGET = Mips
+LIBRARYNAME = LLVMDalvikCodeGen
+TARGET = Dalvik
 
 # Make sure that tblgen is run, first thing.
-BUILT_SOURCES = MipsGenRegisterInfo.inc MipsGenInstrInfo.inc \
-                MipsGenAsmWriter.inc MipsGenCodeEmitter.inc \
-                MipsGenDAGISel.inc MipsGenCallingConv.inc \
-                MipsGenSubtargetInfo.inc MipsGenMCCodeEmitter.inc \
-                MipsGenEDInfo.inc MipsGenDisassemblerTables.inc \
-                MipsGenMCPseudoLowering.inc MipsGenAsmMatcher.inc
+BUILT_SOURCES = DalvikGenRegisterInfo.inc DalvikGenInstrInfo.inc
+				DalvikGenInstrFormats.inc
 
 DIRS = InstPrinter Disassembler AsmParser TargetInfo MCTargetDesc
 

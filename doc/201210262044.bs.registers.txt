@@ -1,0 +1,4 @@
+Registers:
+- When a method is invoked, the parameters to the method are placed into the last n registers. If a method has 2 arguments, and 5 registers (v0-v4), the arguments would be placed into the last 2 registers - v3 and v4.
+- The first parameter to a non-static methods is always the object that the method is being invoked on. 
+- Naming: either v[num] or p[num] - parameter
