@@ -56,3 +56,7 @@ http://stackoverflow.com/questions/2719469/why-is-the-jvm-stack-based-and-the-da
 Update file 201210202120.bs.txt.
 Meet Bjoern.
 Work on it. Produce 201210262044.bs.registers.txt. Rename files to Dalvik.
+
+15 Nov 2012
+Finally, after four weeks of effort, there is a useless independent target for LLVM: Dalvik.
+Produce 201211160145.bs.txt.
