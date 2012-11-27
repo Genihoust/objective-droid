@@ -60,3 +60,7 @@ Work on it. Produce 201210262044.bs.registers.txt. Rename files to Dalvik.
 15 Nov 2012
 Finally, after four weeks of effort, there is a useless independent target for LLVM: Dalvik.
 Produce 201211160145.bs.txt.
+
+22 Nov 2012
+Working on producing boiler plate code for an android app.
+Produce 201211222026.bs.txt

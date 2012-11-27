@@ -1,0 +1,14 @@
+20:27 - Start
+21:04 - What is an LLVM module?
+22:15 - https://fedoraproject.org/wiki/HOWTO_Setup_Android_Development?rd=User:Hpejakle/Android#Hello_Fedora
+00:08 - http://developer.android.com/tools/building/index.html
+00:12 - http://developer.android.com/guide/topics/manifest/service-element.html#label
+00:48 - Resources have to contain only lowercase letters.
+01:07 - BoilerPlate!
+01:11 - 
+> apktool d sth.apk decoded
+> [changes]
+> apktool b decoded sth1.apk
+
+01:12 - adb install 
+01:50 - Finish
