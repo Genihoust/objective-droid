@@ -64,3 +64,8 @@ Produce 201211160145.bs.txt.
 22 Nov 2012
 Working on producing boiler plate code for an android app.
 Produce 201211222026.bs.txt
+
+27 Nov 2012
+Work on second presentation (5 min).
+Note: I am still meeting Bjoern weekly.
+Produce 201211271029.pt
