@@ -69,3 +69,5 @@ Produce 201211222026.bs.txt
 Work on second presentation (5 min).
 Note: I am still meeting Bjoern weekly.
 Produce 201211271029.pt
+Toolchain: 20121127133.bs.txt
+Produce tools/compile.sh and tools/makellc.sh.
