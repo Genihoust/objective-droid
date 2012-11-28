@@ -1,0 +1,30 @@
+In order to create an independent target:
+
+1. create llvm/lib/Target/Blank
+2. copy llvm/lib/Target/CppBackend/* to llvm/lib/Target/Blank/* and replace CppBackend with Blank in a smart way (see 3)
+3. add Blank to TARGETS_TO_BUILD in llvm/configure in a smart way (dependency between what you put here and the names in LLVMInitializeBlankTarget)
+4. Add Blank in subdirectories in llvm/lib/Target/LLVMBuild.txt
+
+To test:
+
+> cd ..
+> mkdir build
+> cd build
+> ../llvm/configure
+> make
+> cd ..
+> mkdir test
+> cd test
+> cat > hello.c
+#include <stdio.h>
+
+int main (int argc, char * argv[]) {
+    printf("Hello, World!\n");
+    return 0;
+}
+<Ctrl-D>
+> ../build/Debug+Asserts/bin/clang -emit-llvm -S -O3 hello.c -o hello.ll
+> ../build/Debug+Asserts/bin/llc -march=blank hello.ll -o hello.cpp
+> ../build/Debug+Asserts/bin/llc hello.cpp -o hello
+> ./hello
+Hello, World!
