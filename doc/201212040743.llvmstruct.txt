@@ -1,0 +1,29 @@
+Function
+ - BasicBlocks
+ - ArgumentList
+ - SymTab
+ - AttributeList
+
+BasicBlock
+ - InstList
+
+Instruction
+ * is a User
+ - getOpcode()
+ - isTerminator()
+ - isBinaryOp()
+ - isShift()
+ - isCast()
+ - hasMetadata()
+ - isAssociative()
+ - isCommutative()
+ - isIdempotent()
+ - isNilpotent()
+ - mayWriteToMemory()
+ - mayReadFromMemory()
+ - mayReadOrWriteMemory()
+ - mayThrow()
+
+User
+ - getOperand()
+ - getNumOperands()

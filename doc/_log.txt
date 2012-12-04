@@ -78,3 +78,8 @@ Arguable success.
 Rename 201210161503.bs.txt to 201210161503.overview.txt.
 Rename 201211160145.bs.txt to 201211160145.independent-target.txt.
 Produce 201211281652.references.txt.
+
+04 Dec 2012
+Mainly fooled around. Worked a bit on the return instruction.
+Produce 201212040743.llvmstruct.txt.
+Produce 201212041139.instuctions.txt.
