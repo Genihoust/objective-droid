@@ -1,4 +1,4 @@
-﻿18 Sep 2012 1012
+18 Sep 2012 1012
 Sent an email to my supervisor (Dr Bjoern Franke) to meet for the project.
 
 18 Sep 2012 1322
@@ -83,3 +83,7 @@ Produce 201211281652.references.txt.
 Mainly fooled around. Worked a bit on the return instruction.
 Produce 201212040743.llvmstruct.txt.
 Produce 201212041139.instuctions.txt.
+
+05-07 Dec 2012
+Spent about 6 hours rebuilding the backend from scratch.
+Update 201212040743.llvmstruct.txt.

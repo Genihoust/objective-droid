@@ -1,8 +1,20 @@
 Function
+ * is a GlobalValue
  - BasicBlocks
  - ArgumentList
  - SymTab
  - AttributeList
+ - getReturnType()
+
+BasicBlock
+ * is a Value
+ - InstList
+
+GlobalValue
+ * is a Constant
+
+Constant
+ * is a User
 
 BasicBlock
  - InstList
@@ -25,5 +37,13 @@ Instruction
  - mayThrow()
 
 User
+ * is a Value
  - getOperand()
  - getNumOperands()
+
+Value!
+ - getName()
+ - getType()
+
+Type!
+ 
