@@ -87,3 +87,8 @@ Produce 201212041139.instuctions.txt.
 05-07 Dec 2012
 Spent about 6 hours rebuilding the backend from scratch.
 Update 201212040743.llvmstruct.txt.
+
+17 Dec 2012
+Spent 11 hours. Almost got fibonacci to work, but comparisons don't work as
+expected. There is only cmp-long and cmp-float in Dalvik. I wonder why...
+Update 201212040743.llvmstruct.txt.

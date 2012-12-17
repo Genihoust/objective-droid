@@ -15,6 +15,12 @@ GlobalValue
 
 Constant
  * is a User
+ - isNullValue()
+ - isAllOnesValue()
+ - isNegativeZeroValue()
+ - canTrap()
+ - isConstantUsed()
+ - getRelocationInfo()
 
 BasicBlock
  - InstList
@@ -46,4 +52,14 @@ Value!
  - getType()
 
 Type!
- 
+
+ConstExpr
+ * is a Constant
+ - isCast()
+ - isCompare()
+ - hasIndices()
+ - isGEPWithNoNotionalOverIndexing()
+ - getOpcode()
+ - getPredicate()
+ - getIndices()
+ - getOpcodeName()
