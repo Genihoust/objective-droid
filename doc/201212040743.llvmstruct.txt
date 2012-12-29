@@ -1,3 +1,8 @@
+Tricky named files:
+InstrTypes.h
+DerivedTypes.h
+
+
 Function
  * is a GlobalValue
  - BasicBlocks

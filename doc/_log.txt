@@ -92,3 +92,11 @@ Update 201212040743.llvmstruct.txt.
 Spent 11 hours. Almost got fibonacci to work, but comparisons don't work as
 expected. There is only cmp-long and cmp-float in Dalvik. I wonder why...
 Update 201212040743.llvmstruct.txt.
+
+29 Dec 2012
+Multiple sessions. Fibonacci works now. < and <= work, but require 6 and 8
+instructions resp. Should analyze performance of different implementations (with
+and without branches). Also can optimize comparison and jump to one instruction
+if they are sequential in the code. Should update the boilerplate so the program
+is not run during initialization.
+Update 201212040743.llvmstruct.txt.
