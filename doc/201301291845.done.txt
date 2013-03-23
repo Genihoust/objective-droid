@@ -1,0 +1,7 @@
+Done:
+    - extracted a common printBinaryInstruction method from the case of the add instruction
+    - extracted Add and Sub cases from the printInstruction switch to separate functions
+    - Add and Sub both use the common method
+    - Written Mul
+    - Written Sdiv
+    - Written Srem

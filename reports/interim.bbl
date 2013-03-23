@@ -1,0 +1,56 @@
+\begin{thebibliography}{1}
+
+\bibitem{P3}
+Business~Software Alliance.
+\newblock Software {I}ndustry {F}acts and {F}igures.
+\newblock
+  \url{http://www.bsa.org/country/public%20policy/~/media/files/policy/security/general/sw_factsfigures.ashx},
+  2009.
+
+\bibitem{P2}
+Datamonitor.
+\newblock Software: {G}lobal {I}ndustry {G}uide.
+\newblock
+  \url{http://www.datamonitor.com/store/Product/software_global_industry_guide?productid=46A43D30-02A3-4425-BFFB-47FCFD5A3AE5},
+  2011.
+
+\bibitem{P1}
+P.~Farago.
+\newblock The {G}reat {D}istribution of {W}ealth {A}cross i{OS} and {A}ndroid
+  {A}pps.
+\newblock
+  \url{http://blog.flurry.com/bid/88014/The-Great-Distribution-of-Wealth-Across-iOS-and-Android-Apps},
+  2012.
+
+\bibitem{P6}
+J.~Gruber.
+\newblock New i{P}hone {D}eveloper {A}greement {B}ans the {U}se of {A}dobe's
+  {F}lash-to-i{P}hone {C}ompiler.
+\newblock
+  \url{http://daringfireball.net/2010/04/iphone_agreement_bans_flash_compiler},
+  2010.
+
+\bibitem{P4}
+D.~Hay.
+\newblock 10 {S}olutions for {C}reating {C}ross-{P}latform {M}obile {A}pps.
+\newblock \url{http://sixrevisions.com/mobile/cross-platform-mobile-apps/},
+  2012.
+
+\bibitem{P5}
+Apple Inc.
+\newblock i{P}hone {SDK} {A}greement.
+\newblock
+  \url{http://www.wired.com/images_blogs/gadgetlab/files/iphone-sdk-agreement.pdf},
+  2010.
+
+\bibitem{P7}
+LLVM Project.
+\newblock {LLVM}’s {A}nalysis and {T}ransform {P}asses.
+\newblock \url{http://llvm.org/docs/Passes.html}, 2013.
+
+\bibitem{P8}
+LLVM Project.
+\newblock Writing an {LLVM} {C}ompiler {B}ackend.
+\newblock \url{llvm.org/docs/WritingAnLLVMBackend.html#Prerequisite}, 2013.
+
+\end{thebibliography}

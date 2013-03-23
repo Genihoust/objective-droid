@@ -1,0 +1,85 @@
+http://en.wikipedia.org/wiki/Objective-C#History
+
+        - superset of C with Smalltalk object support: http://books.google.co.uk/books?id=yB1WwURwBUQC&pg=PA242&dq=Engineering.objective.C+tom.love&hl=en&ei=T-NbTem3Fof2vwPRvenzDA&sa=X&oi=book_result&ct=result&redir_esc=y#v=onepage&q=Engineering.objective.C%20tom.love&f=false
+
+        - Conceived August 1981 as a result of article on Smalltalk in Byte magazine: http://books.google.co.uk/books?id=yB1WwURwBUQC&pg=PA242&dq=Engineering.objective.C+tom.love&hl=en&ei=T-NbTem3Fof2vwPRvenzDA&sa=X&oi=book_result&ct=result&redir_esc=y#v=onepage&q&f=false
+
+        - Obj-C - native programming language for NEXTSTEP 1.0 (Sep 18, 1989): http://osxbook.com/book/bonus/ancient/whatismacosx/history.html
+
+        - Originally developped at Stepstone in 1983 by Brad Cox and Tom Love: http://en.wikipedia.org/wiki/Stepstone , http://virtualschool.edu/objectivec/ , date: http://books.google.co.uk/books?id=yB1WwURwBUQC&pg=PA242&dq=Engineering.objective.C+tom.love&hl=en&ei=T-NbTem3Fof2vwPRvenzDA&sa=X&oi=book_result&ct=result&redir_esc=y#v=onepage&q&f=false
+
+        - Acquired by NEXT on April 1995: http://virtualschool.edu/objectivec/nextAcquresOC.html
+
+        - Objective-C 2.0: http://en.wikipedia.org/wiki/Objective-C#Objective-C_2.0 , http://books.google.co.uk/books?id=yB1WwURwBUQC&pg=PA242&dq=Engineering.objective.C+tom.love&hl=en&ei=T-NbTem3Fof2vwPRvenzDA&sa=X&oi=book_result&ct=result&redir_esc=y#v=onepage&q=Engineering.objective.C%20tom.love&f=false
+
+        - Objective-C went head-to-head with C++ and lost:
+        http://c2.com/cgi/wiki?NextStep
+
+        - Very good comparison of C++ and Objective-C; contains a link to a performance comparison:
+        http://paralaxer.com/cpp-vs-objective-c/
+
+        - Propaganda: http://www.kevra.org/TheBestOfNext/BooksArticlesWhitePapers/WhitePapers/files/page646_3.pdf
+
+        - Steve Naroff writes clang: http://llvm.org/devmtg/2007-05/09-Naroff-CFE.pdf
+
+LLVM
+        - LLVM Inception: http://www.llvm.org/pubs/2002-12-LattnerMSThesis.pdf
+
+        - Apple hires Chris Lattner: http://lists.trolltech.com/qt4-preview-feedback/2005-02/msg00691.html
+
+        - 
+
+Android
+        - http://www.webcitation.org/5wk7sIvVb
+        - # of iphone developers: http://informationworkshop.org/2011/09/04/assessing-the-number-of-apple-developers-coding-native-apps/
+
+SIDENOTES:
+
+        - For evaluation: compare program sizes, speed differences.
+        - For implementation: discuss stuff.
+
+        - Tom Love is Plovdiv against Bjarne Stroustrup's Sofia.
+        - REQUIREMENTS ALGORITHMS alternatives
+        - QUOTE: I happen to know a little more about Germany than I do about Italy, but my understand-
+        ing is that, in Germany, in order to be a certified architect you have to spend a period of
+        time—I think six months—in a variety of building trades. You have to understand some-
+        thing about how plumbing actually works and how electricity actually works and some-
+        thing about how you actually frame a house before you’re allowed to be certified as an
+        architect to legally do such things, I think. In the software business, we’re missing that
+        process of getting people the proper academic training and practical experience—but even
+        after academic training, the proper on-the-job training.
+
+        - QUOTE: You’ve said that a programmer can maintain about half a box of paper.
+        Tom: That’s right. I’m involved in a lot of projects with the federal government these
+        days. It’s amazing how helpful that one little fact turns out to be. 100,000 lines of code is a
+        box of printout. It cost $3 million to develop. It takes two people to maintain it. The num-
+        ber of test cases to fully test that box of code is another two or three boxes of code.
+
+        - Testing -> Programming -> Designing progression hierarchy
+
+        - QUOTE: Tom: Well, it does have that characteristic, doesn’t it? The alternative actually is to do
+        very short projects. But there is that constraint that some of these projects take three years
+        to do and, exaggerating for a moment, if you work for 40 years, there’s only a relatively
+        small number of projects that you can do. There’s the same problem in aviation. The solu-
+        tion to the problem is realistic simulators and that’s something that I’ve argued for in the
+        case of project managers. In fact there is a problem of being able to live long enough to do
+        100 projects, but if you could simulate some of the decisions and experiences so that you
+        could build your resume based on simulated projects as contrasted to real projects, that
+        would also be another way to solve the problem.
+
+        - QUOTE: Do you still use Styrofoam balls to model your systems, where each ball represents a
+        class?
+        Tom: We do, actually. We’ve also done a 3D animation version of it, which we found to
+        be nowhere near as useful as the Styrofoam balls. There’s something about a physical,
+        conspicuous structure hanging from the ceiling right in the middle of a development
+        project that’s regularly updated to provide not only the structure of the system that you’re
+        building, but also the current status of each one of the classes.
+        We’ve done it on 19 projects the last time I’ve counted. One of them was 1,856 classes,
+        which is big—actually, probably bigger than it should be. It was a big commercial project,
+        so it needed to be somewhat big.
+
+        - QUOTE: Why does Objective-C forbid multiple inheritance?
+        Brad: The historical reason is that Objective-C was a direct descendant of Smalltalk,
+        which doesn’t support inheritance, either. If I revisited that decision today, I might even
+        go so far as to remove single inheritance as well. Inheritance just isn’t all that important.
+        Encapsulation is OOP’s lasting contribution.
