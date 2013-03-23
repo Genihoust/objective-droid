@@ -23,7 +23,7 @@ int main (int argc, char * argv[]) {
     return 0;
 }
 <Ctrl-D>
-> ../build/Debug+Asserts/bin/clang -emit-llvm -O3 hello.c -o hello.ll
+> ../build/Debug+Asserts/bin/clang -emit-llvm -S -O3 hello.c -o hello.ll
 > ../build/Debug+Asserts/bin/llc -march=blank hello.ll -o hello.cpp
 > ../build/Debug+Asserts/bin/llc hello.cpp -o hello
 > ./hello

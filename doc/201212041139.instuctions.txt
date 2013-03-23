@@ -1,0 +1,51 @@
+GNUstep:
+    http://wiki.gnustep.org/index.php/Building_GNUstep_with_Clang
+
+`Machine' Instructions:
+
+1. Return:
+
+LLVM:
+    ret <type> <value>      ; Return a value from a non-void function
+    ret void                ; Return from void function
+
+    <type> is "first class":
+        integer: iN
+        floating point: half, float, double, fp128, x86_fp80, ppc_fp128
+        pointer: <type> *
+        vector: < <# elements> x <elementtype> >
+        structure:
+            %T1 = type { <type list> }     ; Identified normal struct type
+            %T2 = type <{ <type list> }>   ; Identified packed struct type
+        array: [<# elements> x <elementtype>]
+        label: label
+        metadata: metadata
+Dalvik:
+    return-void             # Return from a void method.
+    return vAA              # Return from a single-width (32-bit) non-object value-returning method.
+    return-wide vAA         # Return from a double-width (64-bit) value-returning method.
+    return-object vAA       # Return from an object-returning method.
+
+ret void <-> return-void
+ret i32 <value> ->
+  const[/4,/16] vXX <value>
+  return vXX
+
+1. Return.
+
+2. Const:
+
+Dalvik:
+    const/4             vA,  #+B
+    const/16            vAA, #+BBBB
+    const               vAA, #+BBBBBBBB
+    const/high16        vAA, #+BBBB0000
+    const-wide/16       vAA, #+BBBB
+    const-wide/32       vAA, #+BBBBBBBB
+    const-wide          vAA, #+BBBBBBBBBBBBBBBB
+    const-wide/high16   vAA, #+BBBB000000000000
+    const-string        vAA, string@BBBB
+    const-string/jumbo  vAA, string@BBBBBBBB
+    const-class         vAA, type@BBBB
+
+2. Const.

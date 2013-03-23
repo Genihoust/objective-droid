@@ -1,0 +1,43 @@
+Invokation tree:
+
+printProgram
+ |
+ + printModule
+    |
+    + printModuleBody
+       |
+       + printFunctionBody
+          |
+          + getOpName
+          + printInstruction
+             |
+             + getDalvikName
+
+Implemented instructions:
+ - return void
+ - store
+ ! load
+ ! alloca
+ ! binary operators
+ ! number of locals
+
+llvm:
+ - Instruction reference:
+     http://llvm.org/docs/LangRef.html
+
+smali:
+ - Instruction syntax:
+     http://source.android.com/tech/dalvik/dalvik-bytecode.html
+
+ - smali Wiki conventions:
+     https://code.google.com/p/smali/w/list
+
+ - Downloaded the source code!
+
+ - Annotations:
+   - Debug:
+     - .local v1, y:I - y is an integer stored in v1
+     - .line n        - line in source
+   - Needed:
+     - .prologue      - starting of code
+     - .locals n      - number of local variables

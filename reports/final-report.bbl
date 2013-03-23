@@ -1,0 +1,122 @@
+\begin{thebibliography}{10}
+
+\bibitem{P3}
+Business~Software Alliance.
+\newblock Software {I}ndustry {F}acts and {F}igures.
+\newblock
+  \url{http://www.bsa.org/country/public%20policy/~/media/files/policy/security/general/sw_factsfigures.ashx},
+  2009.
+
+\bibitem{Biancuzzi2009}
+F~Biancuzzi and S~Warden.
+\newblock {\em {Masterminds of Programming}}.
+\newblock 2009.
+
+\bibitem{BloombergBusinessweek2005}
+{Bloomberg Businessweek}.
+\newblock {Google Buys Android for Its Mobile Arsenal}, 2005.
+
+\bibitem{P2}
+Datamonitor.
+\newblock Software: {G}lobal {I}ndustry {G}uide.
+\newblock
+  \url{http://www.datamonitor.com/store/Product/software_global_industry_guide?productid=46A43D30-02A3-4425-BFFB-47FCFD5A3AE5},
+  2011.
+
+\bibitem{DeLacey2007}
+Brian DeLacey.
+\newblock {Google Calling: Inside Android, the gPhone SDK}.
+\newblock
+  http://onlamp.com/pub/a/onlamp/2007/11/12/google-calling-inside-the-gphone-sdk.html,
+  2007.
+
+\bibitem{Etherington2013}
+Darrell Etherington.
+\newblock {OUYA Android Gaming Console To Start Shipping To Backers March 28}.
+\newblock
+  http://techcrunch.com/2013/02/28/ouya-android-gaming-console-to-start-shipping-to-backers-march-28,
+  2013.
+
+\bibitem{P1}
+P.~Farago.
+\newblock The {G}reat {D}istribution of {W}ealth {A}cross i{OS} and {A}ndroid
+  {A}pps.
+\newblock
+  \url{http://blog.flurry.com/bid/88014/The-Great-Distribution-of-Wealth-Across-iOS-and-Android-Apps},
+  2012.
+
+\bibitem{GoogleProjectHosting2013}
+{Google Project Hosting}.
+\newblock {smali About Page}.
+\newblock http://code.google.com/p/smali/, 2013.
+
+\bibitem{P6}
+J.~Gruber.
+\newblock New i{P}hone {D}eveloper {A}greement {B}ans the {U}se of {A}dobe's
+  {F}lash-to-i{P}hone {C}ompiler.
+\newblock
+  \url{http://daringfireball.net/2010/04/iphone_agreement_bans_flash_compiler},
+  2010.
+
+\bibitem{P4}
+D.~Hay.
+\newblock 10 {S}olutions for {C}reating {C}ross-{P}latform {M}obile {A}pps.
+\newblock \url{http://sixrevisions.com/mobile/cross-platform-mobile-apps/},
+  2012.
+
+\bibitem{IDC2012}
+IDC.
+\newblock {Android Marks Fourth Anniversary Since Launch with 75.0\% Market
+  Share in Third Quarter, According to IDC}.
+\newblock http://www.idc.com/getdoc.jsp?containerId=prUS23771812\#.UUZ7veNMjqg,
+  2012.
+
+\bibitem{P5}
+Apple Inc.
+\newblock i{P}hone {SDK} {A}greement.
+\newblock
+  \url{http://www.wired.com/images_blogs/gadgetlab/files/iphone-sdk-agreement.pdf},
+  2010.
+
+\bibitem{Islam2012}
+Zak Islam.
+\newblock {Google Play Matches Apple's iOS With 700,000 Apps}.
+\newblock 2012.
+
+\bibitem{Lattner}
+Chris~Arthur Lattner.
+\newblock {LLVM Related Publications}.
+
+\bibitem{Lattner2002}
+Chris~Arthur Lattner.
+\newblock {\em {LLVM : An Infrastructure for Multi-stage Optimization}}.
+\newblock PhD thesis, 2002.
+
+\bibitem{NeXTCorporation1991}
+{NeXT Corporation}.
+\newblock {Object-Oriented Applications Development With NeXTstep}.
+\newblock Technical report, 1991.
+
+\bibitem{P7}
+LLVM Project.
+\newblock {LLVM}’s {A}nalysis and {T}ransform {P}asses.
+\newblock \url{http://llvm.org/docs/Passes.html}, 2013.
+
+\bibitem{P8}
+LLVM Project.
+\newblock Writing an {LLVM} {C}ompiler {B}ackend.
+\newblock \url{llvm.org/docs/WritingAnLLVMBackend.html#Prerequisite}, 2013.
+
+\bibitem{Telecompaper2012}
+Telecompaper.
+\newblock {Lenovo unveils smart TV running Android 4.0}.
+\newblock
+  http://www.telecompaper.com/news/lenovo-unveils-smart-tv-running-android-40--848497,
+  2012.
+
+\bibitem{TheAndroidOpenSourceProject2007}
+{The Android Open Source Project}.
+\newblock {Bytecode for the Dalvik VM}.
+\newblock http://source.android.com/tech/dalvik/dalvik-bytecode.html, 2007.
+
+\end{thebibliography}

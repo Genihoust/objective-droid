@@ -1,0 +1,26 @@
+> emulator -avd android_dev
+
+1 > apktool d BoilerPlate.apk decoded
+2 > (Modify smali)
+3 > apktool b decoded/ BoilerPlate1.apk
+
+4 > [once] keytool -genkey -v -keystore ~/.android/debug.keystore -alias androiddebugkey -keyalg RSA -validity 10000
+... android
+... Android Debug
+... android
+... android
+... US
+... US
+... US
+... yes
+5 > jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore ~/.android/debug.keystore BoilerPlate1.apk androiddebugkey
+... android
+6 > adb install [-r for reinstall] BoilerPlate1.apk
+
+7 > am start -n edu.smanilov.boilerplate/edu.smanilov.boilerplate.MainActivity
+
+Also,
+> mine/tools/compile.sh input.ll
+will do steps 2-7 on a given llvm code, and
+> mine/tools/makellc.sh
+rebuilds the Dalvik Target project and the llc project.

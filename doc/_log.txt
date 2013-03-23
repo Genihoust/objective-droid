@@ -1,4 +1,4 @@
-﻿18 Sep 2012 1012
+18 Sep 2012 1012
 Sent an email to my supervisor (Dr Bjoern Franke) to meet for the project.
 
 18 Sep 2012 1322
@@ -74,3 +74,34 @@ Produce 201211271029.pt
 Since last time - more work on the code, research on the interim report.
 Produced several files.
 Currently working on the interim report, which is due tomorrow.
+Toolchain: 20121127133.bs.txt
+Produce tools/compile.sh and tools/makellc.sh.
+
+28 Nov 2012
+Start implementing some of the instructions - load/store/alloc and add.
+Arguable success.
+Rename 201210161503.bs.txt to 201210161503.overview.txt.
+Rename 201211160145.bs.txt to 201211160145.independent-target.txt.
+Produce 201211281652.references.txt.
+
+04 Dec 2012
+Mainly fooled around. Worked a bit on the return instruction.
+Produce 201212040743.llvmstruct.txt.
+Produce 201212041139.instuctions.txt.
+
+05-07 Dec 2012
+Spent about 6 hours rebuilding the backend from scratch.
+Update 201212040743.llvmstruct.txt.
+
+17 Dec 2012
+Spent 11 hours. Almost got fibonacci to work, but comparisons don't work as
+expected. There is only cmp-long and cmp-float in Dalvik. I wonder why...
+Update 201212040743.llvmstruct.txt.
+
+29 Dec 2012
+Multiple sessions. Fibonacci works now. < and <= work, but require 6 and 8
+instructions resp. Should analyze performance of different implementations (with
+and without branches). Also can optimize comparison and jump to one instruction
+if they are sequential in the code. Should update the boilerplate so the program
+is not run during initialization.
+Update 201212040743.llvmstruct.txt.

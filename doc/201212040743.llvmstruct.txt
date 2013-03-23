@@ -1,0 +1,70 @@
+Tricky named files:
+InstrTypes.h
+DerivedTypes.h
+
+
+Function
+ * is a GlobalValue
+ - BasicBlocks
+ - ArgumentList
+ - SymTab
+ - AttributeList
+ - getReturnType()
+
+BasicBlock
+ * is a Value
+ - InstList
+
+GlobalValue
+ * is a Constant
+
+Constant
+ * is a User
+ - isNullValue()
+ - isAllOnesValue()
+ - isNegativeZeroValue()
+ - canTrap()
+ - isConstantUsed()
+ - getRelocationInfo()
+
+BasicBlock
+ - InstList
+
+Instruction
+ * is a User
+ - getOpcode()
+ - isTerminator()
+ - isBinaryOp()
+ - isShift()
+ - isCast()
+ - hasMetadata()
+ - isAssociative()
+ - isCommutative()
+ - isIdempotent()
+ - isNilpotent()
+ - mayWriteToMemory()
+ - mayReadFromMemory()
+ - mayReadOrWriteMemory()
+ - mayThrow()
+
+User
+ * is a Value
+ - getOperand()
+ - getNumOperands()
+
+Value!
+ - getName()
+ - getType()
+
+Type!
+
+ConstExpr
+ * is a Constant
+ - isCast()
+ - isCompare()
+ - hasIndices()
+ - isGEPWithNoNotionalOverIndexing()
+ - getOpcode()
+ - getPredicate()
+ - getIndices()
+ - getOpcodeName()

@@ -1,0 +1,12 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Background}{1}
+\contentsline {section}{\numberline {1.2}Goals}{2}
+\contentsline {chapter}{\numberline {2}Approach}{5}
+\contentsline {section}{\numberline {2.1}Design}{5}
+\contentsline {section}{\numberline {2.2}Implementation}{7}
+\contentsline {subsection}{\numberline {2.2.1}File structure}{7}
+\contentsline {subsection}{\numberline {2.2.2}{\tt Target} class}{7}
+\contentsline {chapter}{\numberline {3}Progress}{9}
+\contentsline {section}{\numberline {3.1}Up to now}{9}
+\contentsline {section}{\numberline {3.2}Left to do}{9}
+\contentsline {chapter}{Bibliography}{11}
