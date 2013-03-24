@@ -252,17 +252,31 @@ The implementation of the {\tt runOnModule} method simply builds a corresponding
 
 The functions are translated by iterating over the instructions in them and translating each one in separately. It was found that for most instructions this is trivial, and others were either simply translated to a series of instructions (as in the case of comparison instructions) or emulated by a dedicated external library. This approach would result in a slightly lower performance of the output program, but ensures good performance of compilation and simplicity of the compiler.
 
+\chapter{Related Work}
+
+\section{LLJVM}
+
+LLJVM is another project build on top of LLVM. The project was originally made available to the public around November 2009 [ref hacker news.], development died out about a year later [ref github], and is not maintained any more.
+
+Its aim is (or rather - was) to provide a way of running C code on a Java Virtual Machine. The approach is quite similar to the one taken with Objective-Droid: source code is compiled to llvm bytecode, then it is ran through the LLJVM backend to produce Jasmin (assembly language for Java), and it is linked and assembled. Just as a remainder for the reader: in Objective-Droid Objective-C code is compiled to llvm bytecode, then translated by the backend to smali code, linked and assembled.
+
+Unfortunatelly, the author could not build the LLJVM project from source, as it depends on a very specific LLVM version (2.7) which proved quite hard to build on the testing configuration of the time. Other attempts have revealed that the LLJVM code is not compatible with newer versions of LLVM, in particular 3.2. Furthermore, there is no compiled version available, and thus it could not be tested properly. However, from the web page of the project (and the positive comments on it) it appears that the project was at least partially successful.
+
+\section{NestedVM}
+
+Another C-to-Java compiler is NestedVM. In contrast with LLJVM, it relies on gcc, rather than on LLVM, and uses MIPS assembly code as intermediate representation \cite{AllietMegacz:ivme:2004}. It can also target the Java language, which makes it more flexible than LLJVM. According to the paper that introduces NestedVM, it is novel in not using native interfaces like JNI to produce Java bytecode from a C program.
+
+NestedVM is an impressive effort, as it provides a runtime that implements a lot of mechanisms found in C programs that are not straightforward to translate to Java, including: unsigned numbers, file I/O, process-level memory management, and syscalls. There is an even more advanced runtime that emulates a large portion of the POSIX API, notably: maintaining filesystems and device nodes, multiprocessing, and simple networking support. Another interesting feature is that the 64KB limit on the size of Java methods is overcome by splitting long programs to multiple methods and linking them together (called trampoline transformation in the paper.)
+
+The paper reports only three to ten times performance reduction when compared to native execution, and claims that this makes NativeVM an attractive solution for code which is not performance-critical.
+
+Objective-Droid is not as complex as NestedVM, as the goal of the project is not to create a complete system, but rather a prototype that shows that it is possible to run Objective-C programs on Dalvik. For this reason many of the features available in NestedVM are not implemented in Objective-Droid, but it is still possible to compare their performance, as shown in the evaluation section.
+
 \chapter{Evaluation}
 
 \section{Correctness}
 
 \section{Performance}
-
-\chapter{Related Work}
-
-\section{LLJVM}
-
-\section{C to Java compilers}
 
 \chapter{Conclusions}
 
