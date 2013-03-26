@@ -1,0 +1,29 @@
+A ten-page interim report on a description of the problem and your approach to
+its solution, and/or information you have acquired from background reading.
+    - You should take the opportunity to write this interim report such that it
+    may be suitable for inclusion in your final report.
+    - Two copies of this report should be submitted to the ITO office at the end
+    of Week 2 of Semester 2; see the project calendar for more precise
+    information.
+I'd expect:
+    - about 4-5 pages on describing the project and its goals,
+    - about 3-4 pages on describing your approach, then
+    - about 1-2 pages on the timeline (what you have done already, when the rest
+    of the project will be done).
+    - This layout will vary depending on the particular project.
+    - In doing the timeline, remember you must plan to be finished system
+    building by Week 4 of Semester 2 at the latest, to give time for evaluation
+    and writing up.
+The interim reports are scrutinized by the project supervisor, who supplies
+feedback as necessary.
+
+Draft:
+1.
+    - compiler obj-c -> dalvik bc
+    - current way of multiplatform applications
+
+2.
+    - LLVM and clang
+
+3.
+    - plan

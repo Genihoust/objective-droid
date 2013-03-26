@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.3.4)  24 MAR 2013 19:48
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.3.4)  26 MAR 2013 20:40
 entering extended mode
 **C:/Fortress/University/Y4/Honours*Project/objective-droid/reports/final-repor
 t.tex
@@ -129,6 +129,25 @@ t.toc")
 ]
  1.
 
+LaTeX Warning: Citation `P1' on page 1 undefined on input line 36.
+
+
+LaTeX Warning: Citation `P1' on page 1 undefined on input line 38.
+
+
+LaTeX Warning: Reference `fig:softwareMarket2011' on page 1 undefined on input 
+line 40.
+
+
+LaTeX Warning: Citation `P1' on page 1 undefined on input line 44.
+
+
+LaTeX Warning: Citation `P2' on page 1 undefined on input line 44.
+
+
+LaTeX Warning: Citation `P3' on page 1 undefined on input line 44.
+
+
 ! LaTeX Error: File `markets' not found.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -138,23 +157,249 @@ Type  H <return>  for immediate help.
 l.46 ...ludegraphics[width=1.0\textwidth]{markets}
                                                   
 ? 
-! Emergency stop.
- ...                                              
-                                                  
-l.46 ...ludegraphics[width=1.0\textwidth]{markets}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
 
- 
+LaTeX Warning: Reference `tab:crossPlatformTools' on page 1 undefined on input 
+line 49.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 53.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 53.
+
+
+LaTeX Warning: Citation `P5' on page 1 undefined on input line 56.
+
+
+LaTeX Warning: Citation `P6' on page 1 undefined on input line 56.
+
+
+LaTeX Warning: Citation `P4' on page 1 undefined on input line 65.
+
+[1
+
+] [2]
+Overfull \hbox (2.37369pt too wide) in paragraph at lines 115--116
+[]\OT1/cmr/m/n/12 The Objective-C pro-grams that the com-piler must be able to 
+han-dle are command-
+ []
+
+[3] [4
+
+]
+ 2.
+
+LaTeX Warning: Citation `Biancuzzi2009' on page 5 undefined on input line 123.
+
+
+LaTeX Warning: Citation `Biancuzzi2009' on page 5 undefined on input line 125.
+
+
+LaTeX Warning: Citation `NeXTCorporation1991' on page 5 undefined on input line
+ 127.
+
+[5]
+
+LaTeX Warning: Citation `Lattner2002' on page 6 undefined on input line 141.
+
+
+LaTeX Warning: Citation `Lattner' on page 6 undefined on input line 141.
+
+[6]
+
+LaTeX Warning: Citation `Lattner2002' on page 7 undefined on input line 145.
+
+[7]
+
+LaTeX Warning: Citation `P8' on page 8 undefined on input line 167.
+
+[8]
+
+LaTeX Warning: Citation `DeLacey2007' on page 9 undefined on input line 175.
+
+
+LaTeX Warning: Citation `BloombergBusinessweek2005' on page 9 undefined on inpu
+t line 177.
+
+
+LaTeX Warning: Citation `Islam2012' on page 9 undefined on input line 179.
+
+
+LaTeX Warning: Citation `IDC2012' on page 9 undefined on input line 179.
+
+
+LaTeX Warning: Citation `Telecompaper2012' on page 9 undefined on input line 18
+1.
+
+
+LaTeX Warning: Citation `Etherington2013' on page 9 undefined on input line 181
+.
+
+
+Underfull \vbox (badness 4316) has occurred while \output is active []
+
+ [9]
+
+LaTeX Warning: Citation `GoogleProjectHosting2013' on page 10 undefined on inpu
+t line 195.
+
+
+LaTeX Warning: Citation `TheAndroidOpenSourceProject2007' on page 10 undefined 
+on input line 197.
+
+[10] [11] [12
+
+]
+ 3.
+
+LaTeX Warning: Citation `P7' on page 13 undefined on input line 212.
+
+
+LaTeX Warning: Reference `fig:design' on page 13 undefined on input line 224.
+
+<design.pdf, id=57, 296.10625pt x 651.43375pt>
+File: design.pdf Graphic file (type pdf)
+ <use design.pdf>
+Package pdftex.def Info: design.pdf used on input line 230.
+(pdftex.def)             Requested size: 247.16577pt x 543.78122pt.
+ [13] [14 <C:/Fortress/University/Y4/Honours Project/objective-droid/reports/de
+sign.pdf>]
+
+LaTeX Warning: Citation `P8' on page 15 undefined on input line 239.
+
+[15] [16]
+ 4.
+
+LaTeX Warning: Citation `AllietMegacz:ivme:2004' on page 17 undefined on input 
+line 267.
+
+[17
+
+] [18]
+ 5.
+[19
+
+] [20
+
+]
+ 6.
+
+("C:\Fortress\University\Y4\Honours Project\objective-droid\reports\final-repor
+t.bbl" [21] [22
+
+]
+Underfull \hbox (badness 6592) in paragraph at lines 4--9
+[]\OT1/cmr/m/n/12 Business Soft-ware Al-liance.  Soft-ware In-dus-try Facts and
+ Fig-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--25
+$\OT1/cmtt/m/n/12 com / store / Product / software _ global _ industry _ guide 
+? productid =$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--32
+\OT1/cmr/m/n/12 http://onlamp.com/pub/a/onlamp/2007/11/12/google-calling-inside
+-the-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--47
+[]\OT1/cmr/m/n/12 P. Farago.  The Great Dis-tri-bu-tion of Wealth Across iOS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--47
+\OT1/cmr/m/n/12 and An-droid Apps.  $\OT1/cmtt/m/n/12 http : / / blog . flurry 
+. com / bid / 88014 /$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--47
+$\OT1/cmtt/m/n/12 The-[]Great-[]Distribution-[]of-[]Wealth-[]Across-[]iOS-[]and
+-[]Android-[]Apps$\OT1/cmr/m/n/12 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--52
+[]\OT1/cmr/m/n/12 Google Project Host-ing.  smali About Page.
+ []
+
+
+Underfull \hbox (badness 3078) in paragraph at lines 54--60
+[]\OT1/cmr/m/n/12 J. Gru-ber.  New iPhone De-vel-oper Agree-ment Bans the Use o
+f
+ []
+
+
+Underfull \hbox (badness 8000) in paragraph at lines 68--73
+[]\OT1/cmr/m/n/12 IDC.  An-droid Marks Fourth An-niver-sary Since Launch with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--73
+\OT1/cmr/m/n/12 75.0% Mar-ket Share in Third Quar-ter, Ac-cord-ing to IDC.
+ []
+
+
+Overfull \hbox (14.03459pt too wide) in paragraph at lines 68--73
+\OT1/cmr/m/n/12 http://www.idc.com/getdoc.jsp?containerId=prUS23771812#.UUZ7veN
+Mjqg,
+ []
+
+[23]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+
+Underfull \hbox (badness 5359) in paragraph at lines 111--116
+[]\OT1/cmr/m/n/12 Telecompaper.  Lenovo un-veils smart TV run-ning An-droid 4.0
+.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--116
+\OT1/cmr/m/n/12 http://www.telecompaper.com/news/lenovo-unveils-smart-tv-runnin
+g-
+ []
+
+
+Underfull \hbox (badness 1394) in paragraph at lines 118--121
+[]\OT1/cmr/m/n/12 The An-droid Open Source Project.  Byte-code for the Dalvik V
+M.
+ []
+
+) [24]
+("C:\Fortress\University\Y4\Honours Project\objective-droid\reports\final-repor
+t.aux")
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1305 strings out of 493921
- 17704 string characters out of 3144883
- 70400 words of memory out of 3000000
- 4613 multiletter control sequences out of 15000+200000
- 8362 words of font info for 30 fonts, out of 3000000 for 9000
+ 1340 strings out of 493921
+ 18384 string characters out of 3144883
+ 73298 words of memory out of 3000000
+ 4638 multiletter control sequences out of 15000+200000
+ 9537 words of font info for 34 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,9n,21p,290b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 27i,9n,24p,1632b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pr
+ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on final-report.pdf (28 pages, 167656 bytes).
+PDF statistics:
+ 132 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

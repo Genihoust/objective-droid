@@ -89,14 +89,14 @@ Fortunately, there is a community effort to solve the first problem - the
 GNUStep project. And while the interface guidelines differ, they are
 specific enough to make the detection and translation of idioms possible.
 
-This discussion outlines two of the three major components that a system of the required type must have: a version of the Cocoa API, compiled for the Android platform, and an interface translation module. The third necessary component is, of course, a compiler core that can translate the actual program logic. As building the whole system is an ambitious task for an honours project, it was decided that the effort would be concentrated on the program logic component. If successful, this project can be built upon, adding the additional critical components for creating a complete, automatic porting facility.
+This discussion outlines two of the three major components that a system of the required type must have: a version of the Cocoa API, compiled for the Android platform, and an interface translation module. The third necessary component is, of course, a compiler core that can translate the actual program logic. As building the whole system is an ambitious task for an honours project, it was decided that the effort would be concentrated on research on the program logic component.
 
 \section{Goals}
 
-As outlined in the background section, the goal of this project is to build a system, using which, an Objective-C code can be compiled to a Dalvik executable and can be ran on an Android emulator or an actual Android based smart phone. Essential properties of the system are:
+As outlined in the background section, the goal of this project is to investigate the possibility of building a system, using which, an Objective-C code can be compiled to a Dalvik executable and can be ran on an Android emulator or an actual Android based smart phone. Essential properties of the system are:
 \begin{itemize}
 \item
-correctness: the produced program should be working as described by the source code;
+correctness: the produced program should be working as described by the source code. More formally, for a given input the program should produce the same output as native programs compiled by the Gnu Compiler Collection (gcc) and clang+llvm, where the two agree;
 \item
 speed: the time to build a typical program should be acceptable (in the order of minutes at worst).
 \end{itemize}
@@ -110,9 +110,7 @@ performance of produced code: the produced program should be reasonably fast (sa
 size of produced code: the size of the produced program should be reasonably small, when compared to an identical program, written in Java and built using the standard tool chain.
 \end{itemize}
 
-The system should be available as a command-line tool. Different options should be available to specify properties (e.g. name or entry point) of the program to be built. Building a graphical user interface or an interactive system is not in the scope of this project.
-
-The Objective-C programs that the compiler must be able to handle are command-line programs that do not depend on external libraries.
+TODO: finish and link with conclusion
 
 \section{Overview}
 
@@ -167,6 +165,8 @@ Because of the high modularity of the architecture of LLVM it is possible to bui
 There are different ways to do this, depending on the amount of the recommended structure that the developer wants to incorporate in the backend. Ideally, it should extend a large number of LLVM classes and provide target specific details\cite{P8}. This way more of the previously discussed LLVM features can be enabled. However, if the aim is simply to get a working prototype, it is sufficient to extend only one class (see section Implementation) and then to register the backend.
 
 Also, work in LLVM is done in passes of different modularity (block, function, or module), and the developer that is extending the functionality can decide which one (or more) of those they want to implement. However, when writing a backend it is obvoius that the whole program needs to be processed, so writing a module (the largest granularity) pass is sufficient.
+
+For example, if one wishes to create a new target called Blank, they must create a new subdirectory in llvm/lib/Target with the name of the target (Blank). That folder will contain the new backend implementation. This folder contains classes for different modules of the backend, e.g. a module for parsing assembly, one for JIT compilation, one for   
 
 \section{Android and Dalvik}
 

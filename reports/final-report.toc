@@ -1,0 +1,28 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}
+\contentsline {section}{\numberline {1.2}Goals}{2}
+\contentsline {section}{\numberline {1.3}Overview}{3}
+\contentsline {chapter}{\numberline {2}Background}{5}
+\contentsline {section}{\numberline {2.1}Objective-C}{5}
+\contentsline {section}{\numberline {2.2}LLVM and Clang}{6}
+\contentsline {subsection}{\numberline {2.2.1}History}{6}
+\contentsline {subsection}{\numberline {2.2.2}Structure}{7}
+\contentsline {subsection}{\numberline {2.2.3}Language}{8}
+\contentsline {subsection}{\numberline {2.2.4}Building a new backend}{8}
+\contentsline {section}{\numberline {2.3}Android and Dalvik}{9}
+\contentsline {subsection}{\numberline {2.3.1}Android}{9}
+\contentsline {subsection}{\numberline {2.3.2}Dalvik}{10}
+\contentsline {subsection}{\numberline {2.3.3}Smali}{10}
+\contentsline {chapter}{\numberline {3}Design and Implementation}{13}
+\contentsline {section}{\numberline {3.1}Design}{13}
+\contentsline {section}{\numberline {3.2}Implementation}{15}
+\contentsline {subsection}{\numberline {3.2.1}File structure}{15}
+\contentsline {subsection}{\numberline {3.2.2}{\tt Target} class}{15}
+\contentsline {chapter}{\numberline {4}Related Work}{17}
+\contentsline {section}{\numberline {4.1}LLJVM}{17}
+\contentsline {section}{\numberline {4.2}NestedVM}{17}
+\contentsline {chapter}{\numberline {5}Evaluation}{19}
+\contentsline {section}{\numberline {5.1}Correctness}{19}
+\contentsline {section}{\numberline {5.2}Performance}{19}
+\contentsline {chapter}{\numberline {6}Conclusions}{21}
+\contentsline {chapter}{Bibliography}{23}

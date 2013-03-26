@@ -1,0 +1,10 @@
+Links:
+ - BSA: http://www.bsa.org/country/public%20policy/~/media/files/policy/security/general/sw_factsfigures.ashx
+ - Datamonitor: http://www.datamonitor.com/store/Product/software_global_industry_guide?productid=46A43D30-02A3-4425-BFFB-47FCFD5A3AE5
+ - C++ mobile dev: http://www.infoworld.com/t/mobile-development/and-the-winner-cross-platform-mobile-app-dev-c-208770
+ - 10 ways: http://sixrevisions.com/mobile/cross-platform-mobile-apps/
+ - Apple SDK Agreement: http://www.wired.com/images_blogs/gadgetlab/files/iphone-sdk-agreement.pdf
+ - Daring Fireball: http://daringfireball.net/2010/04/iphone_agreement_bans_flash_compiler
+ - iPhone testApp: http://www.raywenderlich.com/1797/how-to-create-a-simple-iphone-app-tutorial-part-1
+ - clang: clang.llvm.org/features.html
+ - optimizer: http://llvm.org/docs/Passes.html
