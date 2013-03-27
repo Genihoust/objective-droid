@@ -1,4 +1,3 @@
-
 \documentclass[parskip]{cs4rep}
 
 \usepackage{graphicx}
@@ -162,11 +161,31 @@ All instructions in the LLVM instruction set are polymorphic. This means that th
 
 Because of the high modularity of the architecture of LLVM it is possible to build new backends and plug them in the whole system. A backend is basically a module that takes the LLVM internal representation and translates the program to a specific target native code. Since Clang includes an Objective-C frontend for LLVM, the author concentrated on developing only a backend that produces Dalvik bytecode from LLVM internal representation.
 
-There are different ways to do this, depending on the amount of the recommended structure that the developer wants to incorporate in the backend. Ideally, it should extend a large number of LLVM classes and provide target specific details\cite{P8}. This way more of the previously discussed LLVM features can be enabled. However, if the aim is simply to get a working prototype, it is sufficient to extend only one class (see section Implementation) and then to register the backend.
+There are different ways to do this, depending on the amount of the recommended structure that the developer wants to incorporate in the backend. Ideally, it should extend a large number of LLVM classes and provide target specific details\cite{P8}. This way more of the previously discussed LLVM features can be enabled. However, if the aim is simply to get a working prototype, it is sufficient to extend only one class and then to register the backend.
 
 Also, work in LLVM is done in passes of different modularity (block, function, or module), and the developer that is extending the functionality can decide which one (or more) of those they want to implement. However, when writing a backend it is obvoius that the whole program needs to be processed, so writing a module (the largest granularity) pass is sufficient.
 
-For example, if one wishes to create a new target called Blank, they must create a new subdirectory in llvm/lib/Target with the name of the target (Blank). That folder will contain the new backend implementation. This folder contains classes for different modules of the backend, e.g. a module for parsing assembly, one for JIT compilation, one for   
+For example, if one wishes to create a new target called "Blank", they must create a new subdirectory in llvm/lib/Target with the name of the target (Blank). This folder will contain the new backend implementation and typically includes classes for different modules of the backend, e.g. a module for parsing assembly, one for JIT compilation, one for printing instructions, etc. However, a minimum working implementation can be achieved by only extending the TargetMachine class of LLVM. Continuing with the example, one would create a file BlankTargetMachine.h in the folder and create a skeleton extension of the TargetMachine class (the CppBackend target is a good example of how to do this.) The key method is addPassesToEmitFile, which would be used to create a simple static compiler. We will return to this later.
+
+As mentioned previously the work in LLVM is done in passes, the most general one being the module pass. It is represented by the ModulePass class of LLVM. In order to continue with the creation of the new target one needs to create a file Blank.cpp in the Blank folder, containing a class extending the ModulePass class.
+
+There is a single most important method of the class ModulePass that needs to be implemented and this is the runOnModule method. It takes a reference to an LLVM Module object as an argument and returns whether the run was successful or not. The LLVM Module object represents all the information that is contained in a single file of llvm bytecode. The data is split to functions, which are further split to basic blocks of control flow, and the basic blocks are comprised of sequences of instructions. Thus a simple static compiler for a target architecture  can be implemented by traversing the Module object and outputting assembly code for this architecture. Depending on how similar this code is to LLVM's internal representation the difficulty of this step can range from moderate to impossible, but for most standard architectures (including Dalvik VM) it is a good starting step.
+
+Once the extension of the ModulePass class is implemented, it is plugged in the system by adding it to the PassManagerBase of the newly created target. This is done in the addPassesToEmitFile method mentioned earlier. This method can be implemented in the Blank.cpp file.
+
+Now the implementation of the example backend is complete, it needs to be registered with LLVM in order for it to be included in llc - the executable that compiles LLVM bytecodes for a specified architecture. This is usually also done in the Blank.cpp file, writing an external C function that simply instantiates the LLVM RegisterTargetMachine template with the type argument being BlankTargetMachine. The instantiation seemlessly triggers the registration mechanism and nothing else needs to be explicitly done.
+
+Other formalities that need to be carried out before the Blank backend can be successfully built are:
+\begin{itemize}
+\item
+creating a TargetInfo subfolder containing a single file BlankTargetInfo.cpp. This file has to declare and register the llvm::TheBlankTarget object of type Target in a similar fashion to the registration of the BlankTargetMachine class;
+\item
+creating CMakeLists.txt, Makefile, and LLVMBuild.txt files that will instruct the build system how to handle the new target. Also adding Blank in subdirectories in llvm/lib/Target/LLVMBuild.txt;
+\item
+adding "Blank" to \verb|TARGETS_TO_BUILD| and \verb|a_target| switch in llvm/configure; note that in order for this to work, this token should be the same as the one in LLVMInitializeBlankTarget.
+\end{itemize}
+
+Once this final steps are done, the Blank end should be working. To test that this is the case, rebuild the llc project and run llc with option march as "blank".
 
 \section{Android and Dalvik}
 

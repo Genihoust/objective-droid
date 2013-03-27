@@ -9,10 +9,10 @@
 \contentsline {subsection}{\numberline {2.2.2}Structure}{7}
 \contentsline {subsection}{\numberline {2.2.3}Language}{8}
 \contentsline {subsection}{\numberline {2.2.4}Building a new backend}{8}
-\contentsline {section}{\numberline {2.3}Android and Dalvik}{9}
-\contentsline {subsection}{\numberline {2.3.1}Android}{9}
-\contentsline {subsection}{\numberline {2.3.2}Dalvik}{10}
-\contentsline {subsection}{\numberline {2.3.3}Smali}{10}
+\contentsline {section}{\numberline {2.3}Android and Dalvik}{10}
+\contentsline {subsection}{\numberline {2.3.1}Android}{10}
+\contentsline {subsection}{\numberline {2.3.2}Dalvik}{11}
+\contentsline {subsection}{\numberline {2.3.3}Smali}{11}
 \contentsline {chapter}{\numberline {3}Design and Implementation}{13}
 \contentsline {section}{\numberline {3.1}Design}{13}
 \contentsline {section}{\numberline {3.2}Implementation}{15}

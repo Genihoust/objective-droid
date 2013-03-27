@@ -7,6 +7,12 @@ Business~Software Alliance.
   \url{http://www.bsa.org/country/public%20policy/~/media/files/policy/security/general/sw_factsfigures.ashx},
   2009.
 
+\bibitem{AllietMegacz:ivme:2004}
+Brian Alliet and Adam Megacz.
+\newblock Complete translation of unsafe native code to safe bytecode.
+\newblock In {\em IVME '04: Proceedings of the 2004 workshop on Interpreters,
+  virtual machines and emulators}, pages 32--41, New York, NY, USA, 2004. ACM.
+
 \bibitem{Biancuzzi2009}
 F~Biancuzzi and S~Warden.
 \newblock {\em {Masterminds of Programming}}.
