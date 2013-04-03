@@ -8,12 +8,12 @@
 \contentsline {subsection}{\numberline {2.2.1}History}{6}
 \contentsline {subsection}{\numberline {2.2.2}Structure}{7}
 \contentsline {subsection}{\numberline {2.2.3}Language}{8}
-\contentsline {subsection}{\numberline {2.2.4}Modifying LLVM}{8}
+\contentsline {subsection}{\numberline {2.2.4}Modifying LLVM}{9}
 \contentsline {subsection}{\numberline {2.2.5}Building a new backend}{9}
-\contentsline {section}{\numberline {2.3}Android and Dalvik}{11}
-\contentsline {subsection}{\numberline {2.3.1}History}{11}
+\contentsline {section}{\numberline {2.3}Android and Dalvik}{12}
+\contentsline {subsection}{\numberline {2.3.1}History}{12}
 \contentsline {subsection}{\numberline {2.3.2}A 'Hello World' Android app}{12}
-\contentsline {subsection}{\numberline {2.3.3}Dalvik}{12}
+\contentsline {subsection}{\numberline {2.3.3}Dalvik}{13}
 \contentsline {subsection}{\numberline {2.3.4}Instruction Set}{13}
 \contentsline {chapter}{\numberline {3}Design and Implementation}{15}
 \contentsline {section}{\numberline {3.1}Design}{15}

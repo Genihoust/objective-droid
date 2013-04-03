@@ -90,9 +90,9 @@ Fortunately, there is a community effort to solve the first problem - the
 GNUStep project. And while the interface guidelines differ, they are
 specific enough to make the detection and translation of idioms possible.
 
-This discussion outlines two of the three major components that a system of the required type must have: a version of the Cocoa API, compiled for the Android platform, and an interface translation module. The third necessary component is, of course, a compiler core that can translate the actual program logic. As building the whole system is an ambitious task for an honours project, it was decided that the effort would be concentrated on research on the program logic component.
+This outlines two of the three major components that a system of the required type must have: a version of the Cocoa API, compiled for the Android platform, and an interface translation module. The third necessary component is, of course, a compiler core that can translate the actual program logic. As building the whole system is an ambitious task for an honours project, it was decided that the effort would be concentrated on research on the program logic component.
 
-\section{Goals}
+\section{Goals} \label{sec:goals}
 
 As outlined in the background section, the goal of this project is to investigate the possibility of building a system, using which, an Objective-C code can be compiled to a Dalvik executable and can be ran on an Android emulator or an actual Android based smart phone. Essential properties of the system are:
 \begin{itemize}
@@ -115,7 +115,13 @@ TODO: finish and link with conclusion
 
 \section{Overview}
 
-a few words on the scope of the implementation: only ints, single modules, assumes int main function, no input, simple output
+This report starts with the "Background" chapter, which gives a short history of the Objective-C language and how it is handled in LLVM, followed by history and details of the LLVM infrastructure and the Dalvik Virtual Machine. This is followed by the "Design and Implementation" chapter, which initially gives an overview of the design of the Objective-Droid system, and then explains in detail how it works. A major part of this chapter is section "Instruction Translation" which describes how the supported instructions are implemented. 
+
+Chapter "Related Work" gives information of two similar projects and how Objective-Droid compares to them. This is followed by the "Evaluation" chapter which explores the correctness of the produced prototype and evaluates its performance. The final chapter is "Conclusions and Further Work" which evaluates what is achieved in this project and how it can be continued.
+
+The prototype that was created as a part of this project has a limited capabilities. This was done due to the relatively short temporal scope of the project, but also for simplicity. The main limitation is that the prototype supports only integer operations. This is enough to produce a system that can be evaluated, but obviously limits the range of possible source programs significantly. However, whenever instructions implemented to support only integers are presented in this report, the possibility of adding floating point numbers support is discussed.
+
+Another limitation is that the system can only take a single file of Objective-C code as an input. Again, this is sufficient to produce a prototype for evaluation purposes. Finally, the produced programs can not be capable of having input from 'stdin', which is a limitation of the DalvikVM that can not be overcome, unless an emulator of a terminal is implemented, but this obviously would have taken too much time resources away from the implementation of the actual instructions and evaluation. However, simple output is supported by translating the printf function to an invokation to the 'info' method of the Log class of Android. More details about the prototype are given in section \ref{sec:Implementation}.
 
 \chapter{Background}
 
@@ -139,13 +145,15 @@ Thanks to the existence of Clang, the reader need not understand the minute deta
 
 \subsection{History}
 
-LLVM was initially concieved as "a compilation strategy" that was designed to provide "effective multi-stage optimisation and more effective profile-driven optimisation, and to do so without changes to the traditional build process or programmer intervention"\cite{Lattner2002}. It was started as the Masters Thesis project of Chris Lattner under the supervision of Professor Vikram Adve in the year of 2000 at the University of Illinois at Urbana-Champaign. The main goals were to lay the foundation of a modern modular compiler, that has similar interface to its contemporaries and predecessors. The paper was published in 2003, and the LLVM infrastructure was open sourced, subsequently being widely adopted by the community and researchers\cite{Lattner}. In 2005, Apple hired Lattner to work at their compilation team and during the following seven years he advanced in positions to reach that of "Director and Architect, Developer Tools Department" in January 2013. Now he is responsible for the management of the entire Developer Tools department at Apple[cite http://www.nondot.org/sabre/Resume.html]. Apart from an example of impressive personal development, this is important for the evolution of LLVM, as during his career at Apple Lattner has mainly been working on LLVM and related tools, including Clang.
+LLVM was initially concieved as "a compilation strategy" that was designed to provide "effective multi-stage optimisation and more effective profile-driven optimisation, and to do so without changes to the traditional build process or programmer intervention"\cite{Lattner2002}. It was started as the Masters Thesis project of Chris Lattner under the supervision of Professor Vikram Adve in the year of 2000 at the University of Illinois at Urbana-Champaign. The main goals were to lay the foundation of a modern modular compiler, that has similar interface to its contemporaries and predecessors. The paper was published in 2003, and the LLVM infrastructure was open sourced, subsequently being widely adopted by the community and researchers\cite{Lattner}. In 2005, Apple hired Lattner to work at their compilation team and during the following seven years he advanced in positions to reach that of "Director and Architect, Developer Tools Department" in January 2013. Now he is responsible for the management of the entire Developer Tools department at Apple \cite{LattnerResume}. Apart from an example of impressive personal development, this is important for the evolution of LLVM, as during his career at Apple Lattner has mainly been working on LLVM and related tools, including Clang.
 
 \subsection{Structure}
 
 There are four stages of compilation included in LLVM: pre-linking compilation, link-time optimisations, run-time optimisations, and offline optimisations\cite{Lattner2002}. The first two stages are common in traditional compilers and include static analysis and classical optimisations. After stage two, the program is compiled to machine code, but high-level type information is also included in the output. This is one of the key novelties in LLVM, as this information is later used to perform the run-time optimisations and offline optimisations.
 
-During execution of an LLVM compiled program, profile information is gathered from the usage statistics. This is different to the usual approach of profiling, as the usage information is actual, user specific data, rather than synthetic data that is fabricated by the developer. This way, the pitfall of profiling for the wrong data is avoided and the increase of performance is higher. In addition to this, the whole profiling process is automated and the overhead of effort is removed. 
+[TODO: add figure]
+
+During execution of an LLVM compiled program, profile information is gathered from the usage statistics. This is different to the usual approach of profiling, as the usage information is actual, user specific data, rather than synthetic data that is fabricated by the developer. This way, the pitfall of profiling for the wrong data is avoided and the increase of performance is higher. In addition to this, the whole profiling process is automated and the overhead of additional effort is removed. 
 
 Other activities that take place during execution of the program are run-time optimisations. These are optimisations that can be found in standard Just-In-Time (JIT) compilers, but also optimisations that use the profiling data to make common cases in the code faster, for the price of slowing down less common control flow paths. If there are profile driven optimisations that are too expensive to perform, they are sheduled for the offline optimiser.
 
@@ -159,11 +167,13 @@ The instruction set that LLVM uses provides an infinite amount of typed virtual 
 \item half, float, double - different formats for floating point numbers, the first three being 16 bit, 32-bit, and 64-bit floating point representations.
 \end{itemize}
 
-Memory is accessed via the store and load operations and is partitioned in global area, stack, and heap. Stack variables are allocated using the alloca instruction and are freed automatically when the function returns. Heap variables are allocated using malloc and need to be freed explicitly using the free instruction. In this way, the memory management in the LLVM language is similar to that in the C programming language.
+There are no specific types for characters or boolean values, as these are translated to i8 and i1 respectively.
+
+Memory is accessed via the store and load operations and is partitioned in global area, stack, and heap. Stack variables are allocated using the alloca instruction and are freed automatically when the function returns. Heap variables are allocated using 'malloc' and need to be 'free'd explicitly using the 'free' instruction. In this way, the memory management in the LLVM language is similar to that in the C programming language.
 
 The arithmetic and logical operations are in three-address form. The available arithmetic operations are: add, sub, mul, div, and rem. The names are self explanatory and correspond to the usual operations in arithmetic. Div and rem are whole number division and remainder functions. The available logical operations are: not, and, or, xor, shl, and shr.
 
-Additionally, there is the comparison instruction 'icmp' that produces a boolean result and takes as first argument the type of the comparison: eq, ne, lt, gt, le, and ge. Respectively, they stand for 'set-on-': equal, not equal, less than, greater than, less than or equal, and greater than or equal. Other instructions can take 0, 3, or a variable number of arguments, examples for which are the call instructions and the SSA phi instruction.
+Additionally, there is the comparison instruction 'icmp' that produces a boolean result and takes as first argument the type of the comparison: eq, ne, lt, gt, le, and ge. Respectively, they stand for 'set-on-': equal, not equal, less than, greater than, less than or equal, and greater than or equal. Other instructions can take 0, 3, or a variable number of arguments, examples for which are the call instructions and the SSA 'phi' instruction.
 
 All instructions in the LLVM instruction set are polymorphic. This means that they can operate on different types and do not need to have special versions for each of the possible types. The types of the operands also define the semantics of the instruction.
 
@@ -175,7 +185,7 @@ The Value class is fundamental in LLVM. In most basic terms everything is a Valu
 
 The Type class is in the base of another hierearchy - the type hierarchy in LLVM \cite{P10}. The header file that defines the hierarchy is not too straightforward to find, so the author feels obliged to point to it: llvm/DerivedTypes.h. There is a single instance of each Type, and thus comparison of types is straightforward. Uniqueness of instances is maintained by creating these instances in static factory methods and never freeing them, once they are created. Examples of members of the Type class hierarchy are llvm::IntegerType, llvm::PointerType, and llvm::FunctionType.
 
-Other important concepts are that of Contexts and Modules. Quite self explanatory, a Context describes the execution state of LLVM. Different Contexts can exist at the same time and can run in parallel on multiple threads, however single Contexts are not guaranteed to be thread safe. They are created via the LLVMContextCreate method and freed via the LLVMContextDispose method. If the second is omitted a memory leak would occur, so the programmer needs to make sure that every LLVMContextCreate method is paired with a LLVMContextDispose method. The topic of Modules is touched upon in the next subsection.
+Other important concepts are that of Contexts and Modules. Quite self explanatory, a Context describes the execution state of LLVM. Different Contexts can exist at the same time and can run in parallel on multiple threads, however single Contexts are not guaranteed to be thread safe. They are created via the LLVMContextCreate method and freed via the LLVMContextDispose method. If the second is omitted a memory leak would occur, so the programmer needs to make sure that every LLVMContextCreate method is paired with a LLVMContextDispose method. The topic of Modules is touched upon in the next section.
 
 \subsection{Building a new backend} \label{sec:buildingANewBackend}
 
@@ -185,15 +195,15 @@ There are different ways to create the backend depending on the amount of the re
 
 Also, work in LLVM is done in passes of different modularity (block, function, or module), and the developer that is extending the functionality can decide which one (or more) of those they want to implement. However, when writing a backend it is obvoius that the whole program needs to be processed, so writing a module (the largest granularity) pass is sufficient.
 
-For example, if one wishes to create a new target called 'Blank', they must create a new subdirectory in llvm/lib/Target with the name of the target. This folder will contain the new backend implementation which typically includes classes for different modules of the backend, e.g. a module for parsing assembly, one for JIT compilation, one for printing instructions, etc. However, a minimum working implementation can be achieved by only extending the TargetMachine class of LLVM. Continuing with the example, one would create a file BlankTargetMachine.h in the folder and create a skeleton extension of the TargetMachine class (the CppBackend target is a good example of how to do this.) The key method is addPassesToEmitFile, which would be used to create a simple static compiler. We will return to this later.
+The author now investigates the case where one wishes to create a new target called 'Blank'. In order to do so, they must create a new subdirectory in llvm/lib/Target with the name of the target. This folder will contain the new backend implementation which typically includes classes for different modules of the backend, e.g. a module for parsing assembly, one for JIT compilation, one for printing instructions, etc. However, a minimum working implementation can be achieved by only extending the TargetMachine class of LLVM. Continuing with the example, one would create a file BlankTargetMachine.h in the folder and create a skeleton extension of the TargetMachine class (the CppBackend target is a good example of how to do this.) The key method is addPassesToEmitFile, which would be used to create a simple static compiler. We will return to this later.
 
 As mentioned previously the work in LLVM is done in passes, the most general one being the module pass. It is represented by the ModulePass class of LLVM. In order to continue with the creation of the new target one needs to create a file Blank.cpp in the Blank folder, containing a class extending the ModulePass class.
 
-There is a single most important method of the class ModulePass that needs to be implemented and this is the runOnModule method. It takes a reference to an LLVM Module object as an argument and returns whether the there were any problems during the run ('true' if so, and 'false' on success). The LLVM Module object represents all the information that is contained in a single file of LLVM bytecode. The data is split to functions, which are further split to basic blocks of control flow, and the basic blocks are comprised of sequences of instructions. Thus a simple static compiler for a target architecture  can be implemented by traversing the Module object and outputting assembly code for this architecture. Depending on how similar this code is to LLVM's internal representation the difficulty of this step can range from moderate to impossible, but for most standard architectures (including Dalvik VM) it is a good starting step. Thus, after implementing the runOnModule method (and quite probably a set of helping methods to maintain high modularity and readability of the code) the person writing the backend should have a solid foundation for testing.
+There is a single most important method of the class ModulePass that needs to be implemented and this is the runOnModule method. It takes a reference to an LLVM Module object as an argument and returns whether the there were any problems during the run ('true' if so, and 'false' on success). The LLVM Module object represents all the information that is contained in a single file of LLVM bytecode. The data is split to functions, which are further split to basic blocks of control flow, and the basic blocks are comprised of sequences of instructions. Thus a simple static compiler for a target architecture  can be implemented by traversing the Module object and outputting assembly code for this architecture. Depending on how similar the syntax of this assembly code is to the syntax of LLVM's internal representation, the difficulty of this step can range from moderate to impossible, but for most standard architectures (including Dalvik VM) it is a good starting step. Thus, after implementing the runOnModule method (and quite probably a set of helping methods to maintain high modularity and readability of the code) the person writing the backend should have a solid foundation for testing.
 
 Once the extension of the ModulePass class is implemented, it is plugged in the system by adding it to the PassManagerBase of the newly created target. This is done in the addPassesToEmitFile method mentioned earlier. This method can be implemented in the Blank.cpp file and can also include conditionals to add different passes, depending on the arguments of the function, but this is optional.
 
-Now the implementation of the example backend is complete, it needs to be registered with LLVM in order for it to be included in llc - the executable that compiles LLVM bytecodes for a specified architecture. This is usually also done in the Blank.cpp file, writing an external C function that simply instantiates the LLVM RegisterTargetMachine template with the type argument being BlankTargetMachine. The instantiation seemlessly triggers the registration mechanism and nothing else needs to be explicitly done.
+Now the implementation of the example backend is complete, it needs to be registered with LLVM in order for it to be included in 'llc' - the executable that compiles LLVM bytecodes for a specified architecture. This is usually also done in the Blank.cpp file, writing an external C function that simply instantiates the LLVM RegisterTargetMachine template with the type argument being BlankTargetMachine. The instantiation seemlessly triggers the registration mechanism and nothing else needs to be explicitly done.
 
 Other formalities that need to be carried out before the Blank backend can be successfully built are:
 \begin{itemize}
@@ -205,7 +215,7 @@ creating CMakeLists.txt, Makefile, and LLVMBuild.txt files that will instruct th
 adding 'Blank' to \verb|TARGETS_TO_BUILD| and \verb|a_target| switch in llvm/configure; note that in order for this to work, this token should be the same as the one in LLVMInitializeBlankTarget.
 \end{itemize}
 
-Once these final steps are done, the Blank backend should be working. To test that this is the case, one should rebuild the llc project and run llc with option march as 'blank'.
+Once these final steps are done, the Blank backend should be working. To test that this is the case, one should rebuild the llc project and run llc with option 'march' as 'blank'.
 
 \section{Android and Dalvik}
 
@@ -213,7 +223,7 @@ Once these final steps are done, the Blank backend should be working. To test th
 
 Android was revealed on the 5th November 2007 by Google, when they introduced the Open Handset Alliance (OHA)\cite{DeLacey2007}. The alliance comprises of several dozens of telecommunication companies and their aim is to produce more open and customisable mobile phones. The major product to achieve this is Android - an open source mobile operating system based on Linux.
 
-Historically, the development of the Android operating system starts around 2003 at a company called Android Inc\cite{BloombergBusinessweek2005}. The project is developed under high secrecy and little is known about its existence before it was introduced in 2007, apart from the fact that the company engaged with it was acquired by Google in 2005.
+Historically, the development of the Android operating system starts around 2003 at a company called Android Inc.\cite{BloombergBusinessweek2005} The project is developed under high secrecy and little is known about its existence before it was introduced in 2007, apart from the fact that the company engaged with it was acquired by Google in 2005.
 
 Android entered a market that was dominated by conservative vendors: Apple, Microsoft, and RIM. Their philosophies don't reserve a place for the idea of open-source software and this is what was different about the new operating system. During the following five years the community of programmers developing Android apps grew rapidly, producing around 700 000 apps for the platform\cite{Islam2012}. Today Android is the most popular mobile operating system, owning three quarters of the market share\cite{IDC2012}.
 
@@ -221,7 +231,7 @@ In addition to advocating open-source, Android has the advantage that it allows 
 
 \subsection{A 'Hello World' Android app} \label{sec:AndroidHelloWorld}
 
-The simplest Android app has an extension of the Android Activity class as its entry point. It also contains a lot of configuration and resource files, but only the Activity class is relevant to this project. There is a main such class for the app, specified in the AndroidManifest.xml file in the root of the source tree. When the app is started on a device, the onCreate method of this class is invoked, and it usually configures the app and displays the initial screen of the app. This is used as an entry point for programs compiled with Objective-Droid (see section \ref{sec:Implementation}).
+The simplest Android app has an extension of the Android Activity class as its entry point. It also contains a lot of configuration and resource files, but only the Activity class is relevant to this project. There is a main such class for the app, specified in the AndroidManifest.xml file in the root of the source tree. When the app is started on a device, the onCreate method of this class is invoked, and it usually configures the app and displays the initial screen. This is used as an entry point for programs compiled with Objective-Droid (see section \ref{sec:Implementation}).
 
 \subsection{Dalvik}
 
@@ -235,7 +245,7 @@ Most importantly though, due to the subtle differences between the Dalvik byteco
 
 \subsection{Instruction Set} \label{sec:DalvikInstructionSet}
 
-The instruction set of Dalvik (Dalvik bytecode) is surprisingly different than Java bytecode. This is mainly due to the fact that the Dalvik virutal machine is register based, rather than stack based like the Java virtual machine. Thus, for example, there are no load/store or push/pop instructions in Dalvik to manage a stack. There are about 65 thousand 32-bit virtual registers at the programmer's disposal. Double precision floating point numbers and 'long' integers are stored in a pair of neighbouring registers. They do not need to be aligned, e.g. can be the pair {v2, v3} or the pair {v17, v18}.
+The instruction set of Dalvik (Dalvik bytecode) is surprisingly different than Java bytecode. This is mainly due to the fact that the Dalvik virutal machine is register based, rather than stack based like the Java virtual machine. Thus, for example, there are no load/store or push/pop instructions in Dalvik to manage a stack. There are 64K 32-bit virtual registers at the programmer's disposal. Double precision floating point numbers and 'long' integers are stored in a pair of neighbouring registers. They do not need to be aligned, e.g. can be the pair {v2, v3} or the pair {v17, v18}.
 
 The types in Dalvik are:
 \begin{itemize}
@@ -251,11 +261,12 @@ Internally, all the values are represented by numbers: integer constants are tri
 
 Arithmetic and logical operations are in three-address mode\cite{TheAndroidOpenSourceProject2007} (the general form of a binary operation is 'binop vAA, vBB, vCC') which is the same as in LLVM's internal representation. However, arithmetic and logical operations in Dalvik's instruction set are not polymorphic, e.g. there are four versions of add: add-int, add-long, add-float, and add-double. There are also versions for when one of the operands is a literal, and versions taking only two registers. This flexibility allows for selecting the minimum amount of instructions in each context and thus achieving the desired reduction of program size, but leads to complications when translating the polymorphic LLVM instructions.
 
-Another important difference between Dalvik bytecode and LLVM IR to note is that there are no boolean comparison operators in Dalvik. There are two alternative ways to compare numbers. One option is to use the comparison operators in Dalvik, which return -1, 0, or 1, for 'less than', 'equal', or 'greater than' results respectively. This option is further complicated by the fact that the arguments to these instructions can only be of type long, float, or double - in other words anything but an integer - so if integers have to be compared, they have to be cast to longs before that can be done. The other option is to use the family of conditional branching instructions: if-eq, if-ne, if-lt, if-gt, if-le, and if-ge. However, using this approach two labels need to be added to the code, complicating the control flow. The difference of the two approaches is examined in the implementation section.
+Another important difference between Dalvik bytecode and LLVM IR worth of noting is that there are no boolean comparison operators in Dalvik. There are two alternative ways to compare numbers. One option is to use the comparison operators in Dalvik, which return -1, 0, or 1, for 'less than', 'equal', or 'greater than' results respectively. This option is further complicated by the fact that the arguments to these instructions can only be of type long, float, or double - in other words anything but an integer - so if integers have to be compared, they have to be cast to longs before that can be done. The other option is to use the family of conditional branching instructions: if-eq, if-ne, if-lt, if-gt, if-le, and if-ge. However, using this approach two labels need to be added to the code, complicating the control flow. The difference of the two approaches is examined in the section \ref{sec:instructionTranslation}.
 
 Finally, there are two other classes of operations relevant to this project: move and const. The two have generally the same purpose - copying a literal or the contents of another register to a register. There are 13 variants of move, each specific for a different situation and there are 11 variants of const.
 
-TODO: Bjoern: In section 2.3.3 you could include a table with Dalvik instructions and a short (one-line) description.
+To summarise, Table TODO ... presents a short description of the Dalvik instructions used in this project. 
+TODO: Bjoern: In section 2.3.3 you could include a table with Dalvik instructions and a short (one-line) description. maybe same for LLVM
 
 \chapter{Design and Implementation}
 
@@ -292,7 +303,7 @@ For a summary of the design, please see Figure ~\ref{fig:design}.
 
 \subsection{Design of the backend} \label{sec:designOfTheBackend}
 
-Initially, an attempt to design the backend by the formal guidelines\cite{P8} was made, but this proved overly complicated and at the end - unnecessary for this particular project. The reason for this is the fact that Dalvik VM is a virtual machine, and not an actual physical architecture. It has its own runtime optimisations (e.g. JIT compilation) so leveraging LLVM's optimisation power is not a necessity and thus a prototype implementation can go by without many of the recommended classes, for example AsmParser, Dissasembler, JIT, or Scheduler. Furthermore, as the architecture is relatively young - less than ten years have passed since its inception - there is only one variant of it, so there is neither need to build the backend in a way that supports different subtargets (no need to implement the Subtarget class).
+Initially, an attempt to design the backend by the formal guidelines\cite{P8} was made, but this proved overly complicated and at the end - unnecessary for this particular project. The reason for this is the fact that Dalvik VM is a virtual machine, and not an actual physical architecture. It has its own runtime optimisations (e.g. JIT compilation) so leveraging LLVM's optimisation power is not a necessity. Thus, a prototype implementation can go by without many of the recommended classes, for example AsmParser, Dissasembler, JIT, or Scheduler. Furthermore, as the Dalvik architecture is relatively young - less than ten years have passed since its inception - there is only one variant of it, so there is neither need to build the backend in a way that supports different subtargets (no need to implement the Subtarget class).
 
 This reduction in boilerplate code allowed for rethinking of whether the guidelines should be followed. An alternative approach was adopted and the backend was designed to include only the most important basic functionality. To favour simplicity it was implemented in a single main class and a few supporting files, as discussed in subsection \ref{sec:buildingANewBackend}. This simplicity gave the advantage of easier configuration and acquiring a working prototype faster. This design proved sufficient for implementing a static single-pass backend that mainly relies on a lookup table for substituting LLVM instructions with single Dalvik instructions or a sequence of them.
 
@@ -323,7 +334,7 @@ As argued in section \ref{sec:designOfTheBackend}, a simple implementation is su
 
 The Target class is the entry point of the Objective-Droid backend. As described earlier, it is the standard mechanism of adding a backend to the LLVM infrastructure. When LLVM performs the static part of the compilation, it first translates the source to LLVM bytecode (using Clang), optimises the program, and then the target chosen by the command line option 'march' is invoked. This invokation is done by calling the passes that were registered by one of the 'addPassesToEmit...' functions. In the case of this project, this is the addPassesToEmitFile function.
 
-The role of this class in Objective-Droid is simply to act as the link between the LLVM infrastructure and the ModulePass class, which is used to implement the bulk of the backend. In general, the Target class can be used to do more, but this is enough for the purposes of the project.
+The role of the Target class in Objective-Droid is simply to act as the link between the LLVM infrastructure and the ModulePass class, which is used to implement the bulk of the backend. In general, the Target class can be used to do more, but this is enough for the purposes of the project.
 
 \subsection{ModulePass class} \label{sec:ModulePassClass}
 
@@ -331,7 +342,7 @@ The main class of the implementation inherits the ModulePass class of LLVM. The 
 
 The implementation of the runOnModule method simply builds an Android Activity class corresponding to the module passed to the compier. Multiple modules are not yet supported. The Activity class is built by first printing out prelude boilerplate code that includes a package declaration, specifies the parent class (android.app.Activity), and adds a declaration of the source file. Next, the list of global variables is iterated over and a static field with the corresponding type is created for each of them. 
 
-This is where the first difficulty arises: the types supported by the LLVM bytecode and the Dalvik bytecode are different. As mentioned in section \ref{sec:LLVMLanguage} LLVM can specify integers of any size, unlike Dalvik, where integers can only be 8, 16, 32, or 64 bit wide. Characters in the two representations are not compatible as Clang compiles char values to 8 bit integers (as per C standard), and Dalvik uses 16 bit integers (as per Java standard). Finally, Dalvik has no notion of 16 bit floating point numbers, so the variables declared as such in the LLVM bytecode have to be implemented as 32 bit floating point numbers.
+This is where the first difficulty arises: the types supported by the LLVM bytecode and the Dalvik bytecode are different. As mentioned in section \ref{sec:LLVMLanguage}, LLVM can specify integers of any size, unlike Dalvik, where integers can only be 8, 16, 32, or 64 bit wide. Characters in the two representations are not compatible, as Clang compiles char values to 8 bit integers (as per C standard), and Dalvik uses 16 bit integers (as per Java standard). Finally, Dalvik has no notion of 16 bit floating point numbers, so the variables declared as such in the LLVM bytecode have to be implemented as 32 bit floating point numbers.
 
 Table \ref{tab:typeConvertion} summarises how LLVM types are converted to Dalvik types. This convertion tries to maximise the utilisation of different Dalvik types while maintaining correctness. Only the integer part of the convertion was implemented, however. Implementing the floating point part would be pointless without an emulation of the IEEE-754 standard, as floating point constants need to be represented in it. The author decided to focus on making a prototype working with integers and thus spared himself the effort of implementing the standard and thus floating point numbers. For a complete implementation of the LLVM language the other types need to be emulated in dedicated classes.
 
@@ -345,33 +356,33 @@ Table \ref{tab:typeConvertion} summarises how LLVM types are converted to Dalvik
     i16 & char \\ \hline
     i32 & int \\ \hline
     i64 & long \\ \hline
-    other iN & error \\ \hline
+    other iN & [an error occurrs] \\ \hline
     half & float \\ \hline
     float & float \\ \hline
     double & double \\ \hline
-    other type & error \\ \hline
+    other type & [an error occurrs] \\ \hline
     \end{tabular}
     \caption{Dalvik types corresponding to LLVM types}
     \label{tab:typeConvertion}
 \end{table}
 
-In addition to creating a static field with the corresponding type for each of the global variables, information about the variable (name, type, and initial value, if any) stored in a table of fields during compilation. Despite arrays being generally unsupported, the special case of a string (an array of characters) is. Strings are treated specially because they are a requirement for output operations in Objective-C - the first argument of the printf function needs to be a string literal.
+In addition to creating a static field with the corresponding type for each of the global variables, information about the variable (name, type, and initial value, if any) stored in a table of fields during compilation. Despite arrays being generally unsupported, the special case of a string (an array of characters) is. Strings are treated specially because they are a requirement for output operations in Objective-C - the first argument of the 'printf' function needs to be a string literal.
 
-After the global variables have been translated to fields, the ones that are statically initalised in the Objective-C code need to be initialised in a "static constructor" of the Activity class. The static constructor is the compiled version of a Java static initialisation block. Thus, the next step of the compilation the creation of this constructor, using pairs of 'const' and 'sput' instructions to implement the initialisation of each of the fields. This is implemented as printing out constant header and footer strings for the constructor, and running a loop in between that prints out the mentioned pairs of instructions. Regarding strings - the fields are declared as being of the type java.lang.String, and constants are loaded by the surprisingly convenient instruction 'const-string'.
+After the global variables have been translated to fields, the ones that are statically initialised in the Objective-C code need to be initialised in a "static constructor" of the Activity class. The static constructor is the compiled version of a Java static initialisation block. Thus, the next step of the compilation is the creation of this constructor, using pairs of 'const' and 'sput' instructions to implement the initialisation of each of the fields. This is implemented as printing out constant header and footer strings for the constructor, and running a loop in between that prints out the mentioned pairs of instructions. Regarding strings - the fields are declared as being of the type java.lang.String, and constants are loaded by the surprisingly convenient instruction 'const-string'.
 
-Once the global variables have been dealt with, the turn of the functions comes. Objective-C functions are translated to public static methods in Dalvik. Each of the functions is printed similarly to the previously discussed static constructor: there is a header string that contains the name and type of the function, and a footer string that declares the end of the function. In between, the list of instructions are translated and printed, grouped in basic blocks. For details about the translation of instructions, please see section TODO\ref{sec:instructionTranslation}.
+Once the global variables have been dealt with, the turn of the functions comes. Objective-C functions are translated to public static Dalvik methods. Each of the functions is printed similarly to the previously discussed static constructor: there is a header string that contains the name and type of the function, and a footer string that declares the end of the function. In between, the list of instructions are translated and printed, grouped in basic blocks. For details about the translation of instructions, please see section \ref{sec:instructionTranslation}.
 
 Finally, when all the functions are translated, the onCreate method is printed. As explained in \ref{sec:AndroidHelloWorld}, onCreate is the standard way of starting up an Android Activity. The boilerplate code for the onCreate method includes an invokation of the super constructor, a call to the 'finish' method of the Activity class, and a return instruction. The call to the 'finish' method stops the application from displaying a screen to the user, as testing is done via the 'adb' debugger, provided by Google. The prototype implementation assumes that the Objective-C program contains a 'main' function of type 'int', and thus an invokation to the method representing this function is the single instruction output in the body of onCreate.
 
 \subsection{Instruction Translation} \label{sec:instructionTranslation}
 
-The functions are translated by iterating over the instructions in them and translating each instruction separately. Some LLVM instructions have quite close equivalences in Dalvik bytecode, for example the 'ret' instruction. Others, as mentioned previously, need short sequences of Dalvik instructions to emulate them, for example the boolean comparison operators. The symbol table is implemented as a map from variable names to registers called VarsRegsMap. 
+The functions are translated by iterating over the instructions in them and translating each instruction separately. Some LLVM instructions have quite close equivalences in Dalvik bytecode, for example the 'ret' instruction. Others, as mentioned previously, need short sequences of Dalvik instructions to emulate them, for example the boolean comparison operators. And to fully support the rest of the instructions, they need to be implemented in a dedicated library class. A 'symbol table' that maps names of LLVM registers to Dalvik registers is implemented as a map called VarsRegsMap. 
 
-A single function is called when an instrution has to be translated. It checks the opcode of the instruction and depending on that calls specific code for each instruction. A subsection describing each instruction translation follows.
+A single function is called when an instrution has to be translated. It checks the opcode of the instruction and depending on that calls specific code for each instruction. A subsection describing how each instruction is translated follows.
 
 \paragraph{The 'ret' instruction} "... is used to return control flow (and optionally a value) from a function back to the caller. There are two forms of the 'ret' instruction: one that returns a value and then causes control flow, and one that just causes control flow to occur."\cite{P11} The version that just causes control flow to occur is 'ret void' and has an exact equivalent in Dalvik bytecode: return-void. Thus the translation of this version is just outputting this equivalent.
 
-The version that returns a value can either return a constant or a register. In Dalvik, however, there is not a version of 'return' that takes a constant as an argument, so in order to simulate this version the constant has to be loaded in a register using the 'const' instruction, and then returned using the return instruction. Furthermore, if the constant is not of type 'int' (notably, if it is of type representing a floating point number), it might need to be converted to its integer representation by the compiler. As mentioned before, the author has decide to exlude this feature for the benefit of simplyfying the prototype.
+The version that returns a value can either return a constant or a register. In Dalvik, however, there is not a version of 'return' that takes a constant as an argument, so in order to simulate this version the constant has to be loaded in a register using the 'const' instruction, and then returned using the return instruction. Furthermore, if the constant is not of type 'int' (notably, if it is of type representing a floating point number), it might need to be converted to its integer representation by the compiler. As mentioned before, the author has decided to exlude this feature for the benefit of simplyfying the prototype.
 
 Similarly, only registers containing single-word values can be currently returned. The reason for this is that registers containing double-word values need to be returned by the 'return-wide' instruction, and objects need to be returned via the 'return-object' instruction. It was unnecessarry to add this functionality, as the goal was to create a prototype that deals with integers only.
 
@@ -383,7 +394,7 @@ Adding support for more types boils down to allocating a pair of registers for v
 
 \paragraph{The 'store' instruction} "... is used to write to memory."\cite{P11} The implementation of this instruction first looks up the name of the Dalvik register that has been reserved for the name of the LLVM register. Then, depending on whether a constant or the contents of another register have to be stored, a 'const' or 'move/16' instruction is printed.
 
-Choosing 'move/16', rather than just 'move' was done in order to support all possible of registers - 'move/16' can have 16 bit arguments, thus can address any of the 64K registers. Unfortunatelly, there is no such variant of 'const', so if this functionality needs to be added the constant can be stored to a pre-reserved low-addressed register - say vFF, and then moved to a high-addressed register via the 'move/16' instruction.
+Choosing 'move/16', rather than just 'move' was done in order to support all possible registers - 'move/16' can have 16 bit arguments, thus can address any of the 64K registers. Unfortunatelly, there is no such variant of 'const', so if this functionality needs to be added the constant can be stored to a pre-reserved low-addressed register - say vFF, and then moved to a high-addressed register via the 'move/16' instruction.
 
 Methods of storing different kinds of values have not been explored as a part of this project.
 
@@ -391,9 +402,9 @@ Methods of storing different kinds of values have not been explored as a part of
 
 \paragraph{Binary arithmetic operations} There are five binary arithmetic operations that are implemented as a part of this project: 'add', 'sub', 'mul', 'sDiv', and 'sRem'. They stand for sum, difference, product, signed quotient, and signed remainder of division, respectively. The arguments they take need to be of the same type, which can be either an integer or a vector of integers, where only the first one is supported in Objective-Droid.
 
-These instructions are implemented in a common function, which takes the type of the operation as an argument and prints the instruction. The first thing that is done is allocating a new register on the symbol table that would store the result. LLVM creates a new unique register every time it needs to perform a binary operation, so this name can be used to reserve a Dalvik register.Then, the types of the arguments are checked, and three cases are considered: having two constants, having a constant and a variable, and having two variables.
+These instructions are implemented in a common function, which takes the type of the operation as an argument and prints the instruction. The first thing that is done is allocating a new register on the symbol table that would store the result. LLVM creates a new unique register every time it needs to perform a binary operation, so this name can be used to reserve a Dalvik register. Then, the types of the arguments are checked, and three cases are considered: having two constants, having a constant and a variable, and having two variables.
 
-The foremost case is rather unlikely to occur, as the optimisation passes of LLVM are likely to have dealt with it and summed up the constants rather than passing the add instruction on. However, the case was added for symmetry and completeness of binary operations.
+The foremost case is rather unlikely to occur, as the optimisation passes of LLVM are likely to have dealt with it and computed the result, rather than passing the binary instruction on. However, the case was added for symmetry and completeness of binary operations. It is implemented by performing the required operation at compile time and printing a single 'const' instruction.
 
 In order to add a constant to a variable in Dalvik, the constant needs to be loaded in a temporary register, as there is no add instruction that takes a constant as an argument. Thus, if the second of the three cases occurs, a temporary register is allocated on the symbol table, and a 'const' instruction that stores the constant in this register is printed. It is then used as if it was the second variable supplied.
 
@@ -420,7 +431,7 @@ On the Dalvik side - when A and B are compared, the result will be -1 if A is le
 
 At the end, by observing the last column in the table in Figure \ref{fig:cmpsle}, it can be concluded that the results of the LLVM code and the Dalvik code agree. However, it is obvious that his translation is quite verbose, producing six instructions to emulate a single one. This is partly due to the need of casting integers to long integers everytime they need to be compared, which should not be necessarry.
 
-The conversion of the 'less-than' comparison is shown in Figure \ref{fig:cmpslt} as a next example.
+The conversion of the 'less-than' comparison is shown in Figure \ref{fig:cmpslt} as a further example of this approach.
 
 \begin{figure}[h!]
     \centering
@@ -459,7 +470,7 @@ Then a 'goto' instruction (unconditional branch) is printed with the 'ifFalse' l
 
 The unconditional version of 'br' is implemented as a single 'goto' statement.
 
-\paragraph{The 'call' instruction} "... represents a simple function call."\cite{P11} However, this description in the language manual is rather ironic, as 'call' is arguably the most complicated instruction. It can have different markers applied to it, for example indicating whether the callee function is 'tail' (it does not access the stack of the caller), or specifying which caller convention should the caller use. Some of these markers are for optimisation purposes, while there isn't enough control in the Dalvik bytecode to implement others. The author again decided to favour simplicity and implement only the most basic function call. Full support of this instruction can only be achieved by implementing a dedicated library class, or in an interpreter.
+\paragraph{The 'call' instruction} "... represents a simple function call."\cite{P11} However, this description in the language manual is rather ironic, as 'call' is arguably the most complicated instruction in the LLVM bytecode. It can have different markers applied to it, for example indicating whether the callee function is 'tail' (it does not access the stack of the caller), or specifying which caller convention should the caller use. Some of these markers are for optimisation purposes, while there isn't enough control in the Dalvik bytecode to implement others. The author again decided to favour simplicity and implement only the most basic version of the 'call' instruction. Full support of this instruction can only be achieved by implementing a dedicated library class, or in an interpreter.
 
 The 'call' instruction needs to have the type and the name of the function to be called as arguments. Since functions in the result have the same names as functions in the source, only the type has to be converted to a Dalvik type. This is done according to Table \ref{tab:typeConvertion}. Then, the arguments need to be parsed. Each argument that is a constant is loaded to a temporary register, and each argument that is an LLVM register is translated to a Dalvik register. The next step is to print an invoke-static instruction (as functions are implemented as static methods as explained in section \ref{sec:ModulePassClass}). It specifies the arguments, the name of the callee function, and its type. Finally, the temporary registers (if any) are deallocated and a 'move-result' instruction (an instruction that stores the returned value to a register) is printed.
 
@@ -485,13 +496,27 @@ Objective-Droid is not as complex as NestedVM, as the goal of the project is not
 
 \chapter{Evaluation}
 
+The system that was used to evaluate the prototype has the properties described in Table TODO .1. (include VM information) . The benchmarks used for evaluation are simple programs that depend only on integer operations, as other types are not supported by the prototype. They are summarised in Table TODO ... .
+
 \section{Correctness}
 
-It is correct.
+Correctness was measured by compiling all of the benchmark programs as native programs for the system described in Table TODO .1. with both gcc and LLVM, and then comparing the output with the output from Objective-Droid compiled versions of the benchmarks. The results are summarised in Table TODO .3. . The tests were ran several times during the implementation of the prototype, and were often used to identify areas for improvement. The final evaluation was done by running the benchmarks 50 times each. Since each benchmarks generates random input for itself, passing all 50 tests gives a high confidence in the correctness of the prototype.
 
 \section{Performance}
 
+Performance was evaluated by writing Java versions of the benchmarks. Thanks to the simplicity of the benchmarks, the resulting code is quite close to the Objective-C source. The Java versions of the benchmarks were compiled with ADT (see Table TODO .4. for details) and ran on an emulator of an Android device (see Table TODO .1. for details). The Objective-C versions of the benchmarks were compiled with Objective-Droid, and ran on the same emulator. Measurements were done using the benchmarking suite \ref{Kyle} written by Steven Kyle, PhD student at the Institute for Computing Systems Architecture (ICSA) at the University of Edinburgh. Overall, programs compiled with Objective-Droid tend to run up to 10\% slower than manually translated programs that are compiled with ADT. This result satisfies the goal of having a system of performance comparable to that of ADT.
+
+When the size of the produced programs was compared, it turned out that apps produced with the Objective-Droid system were within 5\% of the size of apps produced with ADT. As stated in section \ref{sec:goals}, this is an acceptable result and means that if the prototype would have practical value, if it is further developped.
+
+The results of the performance evaluation are summarised in Figures TODO .1. and TODO .2. .
+
 \chapter{Conclusions}
+
+This project has shown that it is possible to produce an Objective-C to Dalvik compiler. This was done by providing an initial prototype that can produce programs that run on an Android simulator, and evaluating its performance to show that it achives this in a reasonable manner, and to show that the produced programs can have size and performance of the same order of magnitude as Android apps written in Java. Extending this prototype to a fully functioning compiler, that covers 100\% of the LLVM intructions was claimed to be possible, and suggestions on how to do this were given in the report.
+
+If such a tool is further developped, it could be used to ease, or even automate, the porting of apps written for Apple devices to 
+
+
 
 % use the following and \cite{} as above if you use bibtex
 % otherwise generate bibtem entries
