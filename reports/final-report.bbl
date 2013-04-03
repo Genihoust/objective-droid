@@ -51,11 +51,6 @@ P.~Farago.
   \url{http://blog.flurry.com/bid/88014/The-Great-Distribution-of-Wealth-Across-iOS-and-Android-Apps},
   2012.
 
-\bibitem{GoogleProjectHosting2013}
-{Google Project Hosting}.
-\newblock {smali About Page}.
-\newblock http://code.google.com/p/smali/, 2013.
-
 \bibitem{P6}
 J.~Gruber.
 \newblock New i{P}hone {D}eveloper {A}greement {B}ans the {U}se of {A}dobe's
@@ -103,6 +98,22 @@ Chris~Arthur Lattner.
 \newblock {Object-Oriented Applications Development With NeXTstep}.
 \newblock Technical report, 1991.
 
+\bibitem{P11}
+LLVM Project.
+\newblock Llvm language reference.
+\newblock \url{http://llvm.org/docs/LangRef.html}, 2013.
+
+\bibitem{P10}
+LLVM Project.
+\newblock llvm:type class reference.
+\newblock \url{http://llvm.org/docs/doxygen/html/classllvm_1_1Type.html}, 2013.
+
+\bibitem{P9}
+LLVM Project.
+\newblock llvm:value class reference.
+\newblock \url{http://llvm.org/docs/doxygen/html/classllvm_1_1Value.html},
+  2013.
+
 \bibitem{P7}
 LLVM Project.
 \newblock {LLVM}’s {A}nalysis and {T}ransform {P}asses.
@@ -112,6 +123,16 @@ LLVM Project.
 LLVM Project.
 \newblock Writing an {LLVM} {C}ompiler {B}ackend.
 \newblock \url{llvm.org/docs/WritingAnLLVMBackend.html#Prerequisite}, 2013.
+
+\bibitem{P13}
+David~A Roberts.
+\newblock git repository of lljvm.
+\newblock \url{https://github.com/davidar/lljvm}, 2009.
+
+\bibitem{P12}
+David~A Roberts.
+\newblock Hacker news publication of lljvm.
+\newblock \url{https://news.ycombinator.com/item?id=961834}, 2009.
 
 \bibitem{Telecompaper2012}
 Telecompaper.

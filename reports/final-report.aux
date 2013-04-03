@@ -10,11 +10,11 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{1}}
-\newlabel{fig:softwareMarket2011}{{1.1}{1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Software market size in 2011 \cite  {P1} \cite  {P2} \cite  {P3}.}}{1}}
+\newlabel{fig:softwareMarket2011}{{1.1}{1}}
 \citation{P4}
-\newlabel{tab:crossPlatformTools}{{1.1}{2}}
 \@writefile{lot}{\contentsline {table}{\numberline {1.1}{\ignorespaces Comparison of popular cross-platform mobile tools \cite  {P4}}}{2}}
+\newlabel{tab:crossPlatformTools}{{1.1}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Goals}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.3}Overview}{3}}
 \citation{Biancuzzi2009}
@@ -30,46 +30,92 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}History}{6}}
 \citation{Lattner2002}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Structure}{7}}
-\citation{P8}
+\citation{P9}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Language}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Building a new backend}{8}}
+\newlabel{sec:LLVMLanguage}{{2.2.3}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Modifying LLVM}{8}}
+\citation{P10}
+\citation{P8}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Building a new backend}{9}}
+\newlabel{sec:buildingANewBackend}{{2.2.5}{9}}
 \citation{DeLacey2007}
 \citation{BloombergBusinessweek2005}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Android and Dalvik}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}History}{11}}
 \citation{Islam2012}
 \citation{IDC2012}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Android and Dalvik}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Android}{10}}
 \citation{Telecompaper2012}
 \citation{Etherington2013}
-\citation{GoogleProjectHosting2013}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}A 'Hello World' Android app}{12}}
+\newlabel{sec:AndroidHelloWorld}{{2.3.2}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Dalvik}{12}}
 \citation{TheAndroidOpenSourceProject2007}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Dalvik}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Smali}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Instruction Set}{13}}
+\newlabel{sec:DalvikInstructionSet}{{2.3.4}{13}}
 \citation{P7}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Design and Implementation}{13}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Design}{13}}
-\newlabel{fig:design}{{3.1}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Overall design of the Objective-Droid system.}}{14}}
 \citation{P8}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Implementation}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}File structure}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}{\tt  Target} class}{15}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Design and Implementation}{15}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Design}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Overview}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Overall design of the Objective-Droid system.}}{16}}
+\newlabel{fig:design}{{3.1}{16}}
+\citation{P8}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Design of the backend}{17}}
+\newlabel{sec:designOfTheBackend}{{3.1.2}{17}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Implementation}{17}}
+\newlabel{sec:Implementation}{{3.2}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}File structure}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Dalvik folder structure.}}{18}}
+\newlabel{fig:dalvikFolder}{{3.2}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Target class}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}ModulePass class}{19}}
+\newlabel{sec:ModulePassClass}{{3.2.3}{19}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Dalvik types corresponding to LLVM types}}{20}}
+\newlabel{tab:typeConvertion}{{3.1}{20}}
+\citation{P11}
+\citation{P11}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Instruction Translation}{21}}
+\newlabel{sec:instructionTranslation}{{3.2.4}{21}}
+\@writefile{toc}{\contentsline {paragraph}{The 'ret' instruction}{21}}
+\citation{P11}
+\citation{P11}
+\@writefile{toc}{\contentsline {paragraph}{The 'alloca' instruction}{22}}
+\@writefile{toc}{\contentsline {paragraph}{The 'store' instruction}{22}}
+\@writefile{toc}{\contentsline {paragraph}{The 'load' instruction}{22}}
+\citation{P11}
+\@writefile{toc}{\contentsline {paragraph}{Binary arithmetic operations}{23}}
+\@writefile{toc}{\contentsline {paragraph}{The 'icmp' instruction}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Translating the LLVM 'icmp sle' instruction variant to Dalvik bytecode.}}{24}}
+\newlabel{fig:cmpsle}{{3.3}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Translating the LLVM 'icmp slt' instruction variant to Dalvik bytecode.}}{25}}
+\newlabel{fig:cmpslt}{{3.4}{25}}
+\citation{P11}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Translating the LLVM 'icmp eq' instruction variant to Dalvik bytecode. There is no such number that can be used in the comparison, in order to get the necessary result.}}{26}}
+\newlabel{fig:cmpeq}{{3.5}{26}}
+\@writefile{toc}{\contentsline {paragraph}{Conditional branches approach}{26}}
+\citation{P11}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Translating the LLVM 'icmp sle' instruction variant to Dalvik bytecode using conditional branches.}}{27}}
+\newlabel{fig:cmpsle2}{{3.6}{27}}
+\@writefile{toc}{\contentsline {paragraph}{The 'br' instruction}{27}}
+\@writefile{toc}{\contentsline {paragraph}{The 'call' instruction}{27}}
+\citation{P12}
+\citation{P13}
 \citation{AllietMegacz:ivme:2004}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Related Work}{17}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Related Work}{29}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}LLJVM}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}NestedVM}{17}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Evaluation}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}LLJVM}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}NestedVM}{29}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Evaluation}{31}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Correctness}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Performance}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Correctness}{31}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Performance}{31}}
 \bibstyle{plain}
 \bibdata{final}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusions}{21}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusions}{33}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{P3}{1}
@@ -80,17 +126,21 @@
 \bibcite{DeLacey2007}{6}
 \bibcite{Etherington2013}{7}
 \bibcite{P1}{8}
-\bibcite{GoogleProjectHosting2013}{9}
-\bibcite{P6}{10}
-\bibcite{P4}{11}
-\bibcite{IDC2012}{12}
-\bibcite{P5}{13}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{23}}
-\bibcite{Islam2012}{14}
-\bibcite{Lattner}{15}
-\bibcite{Lattner2002}{16}
-\bibcite{NeXTCorporation1991}{17}
-\bibcite{P7}{18}
-\bibcite{P8}{19}
-\bibcite{Telecompaper2012}{20}
-\bibcite{TheAndroidOpenSourceProject2007}{21}
+\bibcite{P6}{9}
+\bibcite{P4}{10}
+\bibcite{IDC2012}{11}
+\bibcite{P5}{12}
+\bibcite{Islam2012}{13}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{35}}
+\bibcite{Lattner}{14}
+\bibcite{Lattner2002}{15}
+\bibcite{NeXTCorporation1991}{16}
+\bibcite{P11}{17}
+\bibcite{P10}{18}
+\bibcite{P9}{19}
+\bibcite{P7}{20}
+\bibcite{P8}{21}
+\bibcite{P13}{22}
+\bibcite{P12}{23}
+\bibcite{Telecompaper2012}{24}
+\bibcite{TheAndroidOpenSourceProject2007}{25}

@@ -7,45 +7,45 @@ Warning--empty publisher in Biancuzzi2009
 Warning--empty journal in Islam2012
 Warning--empty school in Lattner2002
 Warning--empty institution in NeXTCorporation1991
-You've used 21 entries,
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            608 strings with 7125 characters,
-and the built_in function-call counts, 4602 in all, are:
-= -- 441
-> -- 159
+            624 strings with 7428 characters,
+and the built_in function-call counts, 5434 in all, are:
+= -- 521
+> -- 187
 < -- 1
-+ -- 68
-- -- 46
-* -- 163
-:= -- 785
-add.period$ -- 62
-call.type$ -- 21
-change.case$ -- 85
++ -- 80
+- -- 54
+* -- 187
+:= -- 925
+add.period$ -- 74
+call.type$ -- 25
+change.case$ -- 101
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 172
-empty$ -- 457
-format.name$ -- 46
-if$ -- 997
+cite$ -- 29
+duplicate$ -- 200
+empty$ -- 545
+format.name$ -- 54
+if$ -- 1181
 int.to.chr$ -- 0
-int.to.str$ -- 21
+int.to.str$ -- 25
 missing$ -- 4
-newline$ -- 106
-num.names$ -- 42
-pop$ -- 160
+newline$ -- 126
+num.names$ -- 50
+pop$ -- 192
 preamble$ -- 1
-purify$ -- 65
+purify$ -- 77
 quote$ -- 0
-skip$ -- 156
+skip$ -- 184
 stack$ -- 0
-substring$ -- 130
-swap$ -- 26
+substring$ -- 150
+swap$ -- 30
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 82
+type$ -- 98
 warning$ -- 4
-while$ -- 45
-width$ -- 23
-write$ -- 208
+while$ -- 53
+width$ -- 27
+write$ -- 248
 (There were 4 warnings)
