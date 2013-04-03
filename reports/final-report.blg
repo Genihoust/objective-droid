@@ -3,49 +3,55 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: final-report.aux
 The style file: plain.bst
 Database file #1: final.bib
+Warning--I'm ignoring Telecompaper2012's extra "howpublished" field
+--line 169 of file final.bib
+Warning--I'm ignoring Etherington2013's extra "howpublished" field
+--line 176 of file final.bib
+Warning--I'm ignoring DeLacey2007's extra "howpublished" field
+--line 183 of file final.bib
 Warning--empty publisher in Biancuzzi2009
 Warning--empty journal in Islam2012
 Warning--empty school in Lattner2002
 Warning--empty institution in NeXTCorporation1991
-You've used 26 entries,
+You've used 27 entries,
             2118 wiz_defined-function locations,
-            627 strings with 7476 characters,
-and the built_in function-call counts, 5627 in all, are:
-= -- 537
-> -- 194
+            639 strings with 8142 characters,
+and the built_in function-call counts, 5868 in all, are:
+= -- 566
+> -- 201
 < -- 1
-+ -- 83
-- -- 56
-* -- 192
-:= -- 956
-add.period$ -- 76
-call.type$ -- 26
-change.case$ -- 105
++ -- 86
+- -- 58
+* -- 198
+:= -- 1000
+add.period$ -- 82
+call.type$ -- 27
+change.case$ -- 109
 chr.to.int$ -- 0
-cite$ -- 30
-duplicate$ -- 207
-empty$ -- 567
-format.name$ -- 56
-if$ -- 1223
+cite$ -- 31
+duplicate$ -- 214
+empty$ -- 589
+format.name$ -- 58
+if$ -- 1278
 int.to.chr$ -- 0
-int.to.str$ -- 26
+int.to.str$ -- 27
 missing$ -- 4
-newline$ -- 130
-num.names$ -- 52
-pop$ -- 200
+newline$ -- 138
+num.names$ -- 54
+pop$ -- 207
 preamble$ -- 1
-purify$ -- 80
+purify$ -- 83
 quote$ -- 0
-skip$ -- 194
+skip$ -- 196
 stack$ -- 0
-substring$ -- 155
-swap$ -- 31
+substring$ -- 160
+swap$ -- 32
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 102
+type$ -- 106
 warning$ -- 4
-while$ -- 55
-width$ -- 28
-write$ -- 255
-(There were 4 warnings)
+while$ -- 57
+width$ -- 29
+write$ -- 271
+(There were 7 warnings)

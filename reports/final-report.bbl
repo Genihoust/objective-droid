@@ -20,7 +20,10 @@ F~Biancuzzi and S~Warden.
 
 \bibitem{BloombergBusinessweek2005}
 {Bloomberg Businessweek}.
-\newblock {Google Buys Android for Its Mobile Arsenal}, 2005.
+\newblock {Google Buys Android for Its Mobile Arsenal}.
+\newblock
+  \url{http://www.businessweek.com/stories/2005-08-16/google-buys-android-for-its-mobile-arsenal},
+  2005.
 
 \bibitem{P2}
 Datamonitor.
@@ -84,13 +87,20 @@ Zak Islam.
 \newblock {Google Play Matches Apple's iOS With 700,000 Apps}.
 \newblock 2012.
 
+\bibitem{Kyle}
+Steven Kyle.
+\newblock {Framework for Android Benchmarks}.
+\newblock \url{https://github.com/rubzo/abm}, 2012.
+
 \bibitem{LattnerResume}
 Chris~Arthur Lattner.
 \newblock {Chris Lattner Resume}.
+\newblock \url{http://www.nondot.org/sabre/Resume.html}.
 
 \bibitem{Lattner}
 Chris~Arthur Lattner.
 \newblock {LLVM Related Publications}.
+\newblock \url{http://llvm.org/pubs/}.
 
 \bibitem{Lattner2002}
 Chris~Arthur Lattner.

@@ -8,36 +8,36 @@
 \contentsline {subsection}{\numberline {2.2.1}History}{6}
 \contentsline {subsection}{\numberline {2.2.2}Structure}{7}
 \contentsline {subsection}{\numberline {2.2.3}Language}{8}
-\contentsline {subsection}{\numberline {2.2.4}Modifying LLVM}{9}
+\contentsline {subsection}{\numberline {2.2.4}Modifying LLVM}{8}
 \contentsline {subsection}{\numberline {2.2.5}Building a new backend}{9}
-\contentsline {section}{\numberline {2.3}Android and Dalvik}{12}
-\contentsline {subsection}{\numberline {2.3.1}History}{12}
+\contentsline {section}{\numberline {2.3}Android and Dalvik}{11}
+\contentsline {subsection}{\numberline {2.3.1}History}{11}
 \contentsline {subsection}{\numberline {2.3.2}A 'Hello World' Android app}{12}
-\contentsline {subsection}{\numberline {2.3.3}Dalvik}{13}
+\contentsline {subsection}{\numberline {2.3.3}Dalvik}{12}
 \contentsline {subsection}{\numberline {2.3.4}Instruction Set}{13}
-\contentsline {chapter}{\numberline {3}Design and Implementation}{15}
-\contentsline {section}{\numberline {3.1}Design}{15}
-\contentsline {subsection}{\numberline {3.1.1}Overview}{15}
-\contentsline {subsection}{\numberline {3.1.2}Design of the backend}{17}
-\contentsline {section}{\numberline {3.2}Implementation}{17}
-\contentsline {subsection}{\numberline {3.2.1}File structure}{17}
-\contentsline {subsection}{\numberline {3.2.2}Target class}{18}
-\contentsline {subsection}{\numberline {3.2.3}ModulePass class}{19}
-\contentsline {subsection}{\numberline {3.2.4}Instruction Translation}{21}
-\contentsline {paragraph}{The 'ret' instruction}{21}
-\contentsline {paragraph}{The 'alloca' instruction}{22}
-\contentsline {paragraph}{The 'store' instruction}{22}
-\contentsline {paragraph}{The 'load' instruction}{22}
-\contentsline {paragraph}{Binary arithmetic operations}{23}
-\contentsline {paragraph}{The 'icmp' instruction}{23}
-\contentsline {paragraph}{Conditional branches approach}{26}
-\contentsline {paragraph}{The 'br' instruction}{27}
-\contentsline {paragraph}{The 'call' instruction}{27}
-\contentsline {chapter}{\numberline {4}Related Work}{29}
-\contentsline {section}{\numberline {4.1}LLJVM}{29}
-\contentsline {section}{\numberline {4.2}NestedVM}{29}
-\contentsline {chapter}{\numberline {5}Evaluation}{31}
-\contentsline {section}{\numberline {5.1}Correctness}{31}
-\contentsline {section}{\numberline {5.2}Performance}{31}
-\contentsline {chapter}{\numberline {6}Conclusions}{33}
-\contentsline {chapter}{Bibliography}{35}
+\contentsline {chapter}{\numberline {3}Design and Implementation}{17}
+\contentsline {section}{\numberline {3.1}Design}{17}
+\contentsline {subsection}{\numberline {3.1.1}Overview}{17}
+\contentsline {subsection}{\numberline {3.1.2}Design of the backend}{19}
+\contentsline {section}{\numberline {3.2}Implementation}{19}
+\contentsline {subsection}{\numberline {3.2.1}File structure}{19}
+\contentsline {subsection}{\numberline {3.2.2}Target class}{20}
+\contentsline {subsection}{\numberline {3.2.3}ModulePass class}{21}
+\contentsline {subsection}{\numberline {3.2.4}Instruction Translation}{23}
+\contentsline {paragraph}{The 'ret' instruction}{23}
+\contentsline {paragraph}{The 'alloca' instruction}{24}
+\contentsline {paragraph}{The 'store' instruction}{24}
+\contentsline {paragraph}{The 'load' instruction}{24}
+\contentsline {paragraph}{Binary arithmetic operations}{25}
+\contentsline {paragraph}{The 'icmp' instruction}{25}
+\contentsline {paragraph}{Conditional branches approach}{28}
+\contentsline {paragraph}{The 'br' instruction}{29}
+\contentsline {paragraph}{The 'call' instruction}{29}
+\contentsline {chapter}{\numberline {4}Related Work}{31}
+\contentsline {section}{\numberline {4.1}LLJVM}{31}
+\contentsline {section}{\numberline {4.2}NestedVM}{31}
+\contentsline {chapter}{\numberline {5}Evaluation}{33}
+\contentsline {section}{\numberline {5.1}Correctness}{33}
+\contentsline {section}{\numberline {5.2}Performance}{33}
+\contentsline {chapter}{\numberline {6}Conclusion}{37}
+\contentsline {chapter}{Bibliography}{39}
